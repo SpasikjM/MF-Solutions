@@ -1,0 +1,22 @@
+.flex-container {
+    display: flex;
+    background-color: dodgerblue;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moulding Catalog</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Navigation Bar Styles */
+      nav {
+        background-color: #333;
+        color: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      nav .logo img {
+        max-height: 40px; /* Adjust logo height */
+      }
+
+      nav .nav-container {
+        max-width: 1296px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+      }
+
+      nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: white;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1em;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #f0a500;
+      }
+
+      .hero-section {
+        position: relative;
+        background-image: url('assets/img/MF Solutions Catalog_Page_hero.png'); /* Replace with your hero image path */
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        color: #fff;
+        margin-bottom: 120px;
+      }
+
+      .hero-content {
+        position: relative;
+        text-align: left;
+        z-index: 1;
+        max-width: 800px;
+        padding: 0 120px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+        margin-top: 10px;
+        font-weight: normal;
+      }
+
+      .intro-section {
+        max-width: 1296px;
+        margin: 20px auto;
+        padding: 0 20px;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #333;
+        text-align: left;
+      }
+
+      .filter-container {
+        max-width: 1296px;
+        margin: 20px auto;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .filter-container label {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .filter-container select {
+        padding: 8px 12px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+      }
+
+      .catalog-container {
+        max-width: 1296px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .section {
+        display: none;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 120px;
+      }
+
+      .image-container,
+      .full-width-image-container {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .image-container {
+        flex: 1 1 calc(50% - 20px);
+      }
+
+      .full-width-image-container {
+        flex: 1 1 100%;
+      }
+
+      .image-container img,
+      .full-width-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        margin-bottom: 120px;
+      }
+
+      .image-container img:hover,
+      .full-width-image-container img:hover {
+        transform: scale(1.02);
+      }
+
+      .image-title {
+        text-align: left;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .pagination a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 10px 15px;
+        margin: 0 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .pagination a:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .pagination a.active {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .pagination a.disabled {
+        pointer-events: none;
+        background-color: #f0f0f0;
+        color: #bbb;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f4f4f4;
+        margin-top: 30px;
+      }
+
+      @media (max-width: 768px) {
+        .image-container {
+          flex: 1 1 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .pagination a {
+          padding: 8px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav Bar Section -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">
+          <a href="#home">
+            <img src="assets/img/Logo_white.png" alt="Company Logo" />
+          </a>
+        </div>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="index.html">Catalog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1>Explore Our Moulding Catalog</h1>
+        <p>Discover high-quality mouldings and enhance your designs.</p>
+      </div>
+    </div>
+    <div class="intro-section">
+      <h2>Moulding Catalog</h2>
+      <p>
+        At Master Frame Solutions , we understand that finding the perfect
+        product is crucial. That's why we've introduced a powerful catalog
+        filtering feature to streamline your search and help you discover
+        exactly what you're looking for.
+      </p>
+      <br />
+      <h2>How to Use Our Catalog:</h2>
+      <ol>
+        <li>Take your time exploring our diverse selection.</li>
+        <li>
+          Select: Note the product codes and collection of the mouldings that
+          catch your eye.
+        </li>
+        <li>
+          Inquire: Contact our friendly team for pricing, customization options,
+          and any additional information.
+        </li>
+        <li>Contact Information: email at: milosh.spasikj@gmail.com</li>
+      </ol>
+    </div>
+
+    <div class="filter-container">
+      <label for="category-filter">Filter by Category:</label>
+      <select id="category-filter">
+        <option value="all">All</option>
+        <option value="basic">Basic</option>
+        <option value="l-shapes">L-Shapes</option>
+        <option value="classics">Classics</option>
+        <option value="paper-veneers">Paper Veneers</option>
+        <option value="synthetiks">Synthetics</option>
+        <option value="raw">
+          Raw, Passepartouts, Spacers, Stretcher Bars, Solid Oak
+        </option>
+        <option value="artbox">Artbox</option>
+        <option value="fsc-wood">FSC Wood</option>
+      </select>
+    </div>
+
+    <div class="catalog-container" id="catalog"></div>
+    <div class="pagination" id="pagination"></div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Master Frame Solutions. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Sample catalog data for demonstration purposes
+        const catalogData = {
+          1: [
+            {
+              img: 'assets/img/MF Solutions Catalog_Page_002.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              img: 'assets/img/MF Solutions Catalog_Page_003.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              img: 'assets/img/MF Solutions Catalog_Page_004.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '1316/1222',
+              img: 'assets/img/MF Solutions Catalog_Page_005_01.png',
+              category: 'basic',
+            },
+            {
+              title: '1415',
+              img: 'assets/img/MF Solutions Catalog_Page_005_02.png',
+              category: 'basic',
+            },
+            {
+              title: '1415',
+              img: 'assets/img/MF Solutions Catalog_Page_006 1.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '1415',
+              img: 'assets/img/MF Solutions Catalog_Page_007 1.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '1316/1222',
+              img: 'assets/img/MF Solutions Catalog_Page_008 1.png',
+              category: 'basic',
+            },
+            {
+              title: '1415',
+              img: 'assets/img/MF Solutions Catalog_Page_008 2.png',
+              category: 'basic',
+            },
+          ],
+          2: [
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_009 1.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_010 1.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_010 2.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_011 1.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_012 1.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_012 2.png',
+              category: 'basic',
+            },
+          ],
+          3: [
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_013.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_014.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_015.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_016-1.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_016.png',
+              category: 'basic',
+            },
+          ],
+          4: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_017.png',
+              category: 'basic',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_017-1.png',
+              category: 'basic',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_018.png',
+              category: 'basic',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_018-1.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_019.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_020.png',
+              category: 'basic',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_020-1.png',
+              category: 'basic',
+            },
+          ],
+          5: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_021.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_022.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_023.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_024.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+          ],
+          6: [
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_025.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_025-1.png',
+              category: 'basic',
+            },
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_026.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_026-1.png',
+              category: 'basic',
+            },
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_027.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_027-1.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_028.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+          ],
+          7: [
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_029.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_029-1.png',
+              category: 'basic',
+            },
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_030.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_030-1.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_031.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_032.png',
+              fullWidth: true,
+              category: 'basic',
+            },
+          ],
+          8: [
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_033.png',
+              category: 'basic',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_033-1.png',
+              category: 'basic',
+            },
+            {
+              img: 'assets/img/MF Solutions Catalog_Page_034.png',
+              fullWidth: true,
+              category: 'l-shapes',
+            },
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_035.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_035-1.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_036.png',
+              fullWidth: true,
+              category: 'l-shapes',
+            },
+          ],
+          9: [
+            {
+              title: 'L-shapes',
+              img: 'assets/img/MF Solutions Catalog_Page_037.png',
+              fullWidth: true,
+              category: 'l-shapes',
+            },
+            {
+              title: '2013',
+              img: 'assets/img/MF Solutions Catalog_Page_038.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_038-1.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_039.png',
+              fullWidth: true,
+              category: 'l-shapes',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_040.png',
+              fullWidth: true,
+              category: 'l-shapes',
+            },
+          ],
+          10: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_041.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_041-1.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_042.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_042-1.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_043.png',
+              fullWidth: true,
+              category: 'l-shapes',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_044.png',
+              category: 'l-shapes',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_044-1.png',
+              category: 'l-shapes',
+            },
+          ],
+          11: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_045.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_046.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_046-1.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_047.png',
+              category: 'classics',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_047-1.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_048.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_048-1.png',
+              category: 'classics',
+            },
+          ],
+          12: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_049.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_049-1.png',
+              category: 'classics',
+            },
+
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_050.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_050-1.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_051.png',
+              category: 'classics',
+            },
+            {
+              title: '1717',
+              img: 'assets/img/MF Solutions Catalog_Page_051-1.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_052.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_052-1.png',
+              category: 'classics',
+            },
+          ],
+          13: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_053.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_054.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_055.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_056.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+          ],
+          14: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_057.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_058.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_059.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_060.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+          ],
+          15: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_061.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_062.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_063.png',
+              fullWidth: true,
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_064.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_064-1.png',
+              category: 'classics',
+            },
+          ],
+          16: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_065.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_065-1.png',
+              category: 'classics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_066.png',
+              fullWidth: true,
+              category: 'paper-veneers',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_067.png',
+              fullWidth: true,
+              category: 'paper-veneers',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_068.png',
+              category: 'paper-veneers',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_068-1.png',
+              category: 'paper-veneers',
+            },
+          ],
+          17: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_069.png',
+              fullWidth: true,
+              category: 'paper-veneers',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_070.png',
+              fullWidth: true,
+              category: 'paper-veneers',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_071.png',
+              fullWidth: true,
+              category: 'paper-veneers',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_072.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+          ],
+          18: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_073.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_074.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_074-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_075.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_076.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_076-1.png',
+              category: 'synthetiks',
+            },
+          ],
+          19: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_077.png',
+              category: 'synthetics',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_077-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_078.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_079.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_079-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_080.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_080-1.png',
+              category: 'synthetiks',
+            },
+          ],
+          20: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_081.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_081-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_082.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_082-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_083.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_084.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_084-1.png',
+              category: 'synthetiks',
+            },
+          ],
+          21: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_085.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_085-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_086.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_087.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_087-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_088.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+          ],
+          22: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_089.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_090.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_091.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_091-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_092.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+          ],
+          23: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_093.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_093-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_094.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_094-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_095.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_096.png',
+              fullWidth: true,
+              category: 'synthetiks',
+            },
+          ],
+          24: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_097.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_097-1.png',
+              category: 'synthetiks',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_098.png',
+              fullWidth: true,
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_099.png',
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_099-1.png',
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_100.png',
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_100-1.png',
+              category: 'raw',
+            },
+          ],
+          25: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_101.png',
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_101-1.png',
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_102.png',
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_102-1.png',
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_103.png',
+              fullWidth: true,
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_104.png',
+              category: 'raw',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_104-1.png',
+              category: 'raw',
+            },
+          ],
+          26: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_105.png',
+              fullWidth: true,
+              category: 'artbox',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_106.png',
+              fullWidth: true,
+              category: 'artbox',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_107.png',
+              fullWidth: true,
+              category: 'artbox',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_108.png',
+              fullWidth: true,
+              category: 'fsc-wood',
+            },
+          ],
+          27: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_113.png',
+              category: 'fsc-wood',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_113-1.png',
+              category: 'fsc-wood',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_114.png',
+              fullWidth: true,
+              category: 'fsc-wood',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_115.png',
+              fullWidth: true,
+              category: 'fsc-wood',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_116.png',
+              category: 'fsc-wood',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_116-1.png',
+              category: 'fsc-wood',
+            },
+          ],
+          28: [
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_117.png',
+              fullWidth: true,
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_118.png',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_118-1.png',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_119.png',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_119-1.png',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_120.png',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_120-1.png',
+            },
+            {
+              title: '715',
+              img: 'assets/img/MF Solutions Catalog_Page_info_122.png',
+              fullWidth: true,
+            },
+          ],
+        };
+
+        const catalogContainer = document.getElementById('catalog');
+        const paginationContainer = document.getElementById('pagination');
+        const filterDropdown = document.getElementById('category-filter');
+        let currentPage = 1;
+        const totalPages = Object.keys(catalogData).length;
+
+        const renderCatalog = (page, category = 'all') => {
+          catalogContainer.innerHTML = '';
+          const section = document.createElement('div');
+          section.className = 'section';
+
+          // Filter items by category and page
+          catalogData[page]
+            .filter((item) => category === 'all' || item.category === category)
+            .forEach(({ title, img, fullWidth }) => {
+              const container = document.createElement('div');
+              container.className = fullWidth
+                ? 'full-width-image-container'
+                : 'image-container';
+
+              const titleHTML = title
+                ? `<div class="image-title">Moulding code <span>${title}</span></div>`
+                : '';
+
+              container.innerHTML = `
+          ${titleHTML}
+          <img src="${img}" alt="${title || 'Moulding'}" />
+        `;
+              section.appendChild(container);
+            });
+
+          if (section.children.length === 0) {
+            section.innerHTML = `<p>No items found in this category.</p>`;
+          }
+
+          catalogContainer.appendChild(section);
+          section.style.display = 'flex';
+        };
+
+        const renderPagination = (category) => {
+          paginationContainer.innerHTML = '';
+          let filteredPages = [];
+
+          // Find the pages that have items for the selected category
+          Object.entries(catalogData).forEach(([page, items]) => {
+            const hasCategory = items.some(
+              (item) => category === 'all' || item.category === category
+            );
+            if (hasCategory) {
+              filteredPages.push(page);
+            }
+          });
+
+          if (filteredPages.length === 0) {
+            paginationContainer.innerHTML = '<p>No pages to display.</p>';
+            return;
+          }
+
+          paginationContainer.innerHTML = `
+      <a href="#" class="${
+        currentPage === 1 ? 'disabled' : ''
+      }" id="first-btn">First</a>
+      <a href="#" class="${
+        currentPage === 1 ? 'disabled' : ''
+      }" id="prev-btn">Previous</a>
+      ${filteredPages
+        .map(
+          (page) =>
+            `<a href="#" class="${
+              page == currentPage ? 'active' : ''
+            }" data-page="${page}">${page}</a>`
+        )
+        .join('')}
+      <a href="#" class="${
+        currentPage === filteredPages.length ? 'disabled' : ''
+      }" id="next-btn">Next</a>
+      <a href="#" class="${
+        currentPage === filteredPages.length ? 'disabled' : ''
+      }" id="last-btn">Last</a>
+    `;
+        };
+
+        const updatePage = (page, category = 'all') => {
+          currentPage = page;
+          renderCatalog(currentPage, category);
+          renderPagination(category);
+          setupPaginationListeners(category);
+        };
+
+        const setupPaginationListeners = (category) => {
+          document
+            .querySelectorAll('.pagination a[data-page]')
+            .forEach((link) => {
+              link.addEventListener('click', (event) => {
+                event.preventDefault();
+                updatePage(parseInt(link.dataset.page), category);
+              });
+            });
+
+          document.getElementById('prev-btn').onclick = (e) => {
+            e.preventDefault();
+            if (currentPage > 1) updatePage(currentPage - 1, category);
+          };
+
+          document.getElementById('next-btn').onclick = (e) => {
+            e.preventDefault();
+            const lastPage = Object.keys(catalogData).length;
+            if (currentPage < lastPage) updatePage(currentPage + 1, category);
+          };
+
+          document.getElementById('first-btn').onclick = (e) => {
+            e.preventDefault();
+            updatePage(1, category);
+          };
+
+          document.getElementById('last-btn').onclick = (e) => {
+            e.preventDefault();
+            const lastPage = Object.keys(catalogData).length;
+            updatePage(lastPage, category);
+          };
+        };
+
+        filterDropdown.addEventListener('change', () => {
+          const selectedCategory = filterDropdown.value;
+          updatePage(1, selectedCategory); // Reset to page 1 on category change
+        });
+
+        updatePage(1);
+      });
+    </script>
+  </body>
+</html>
