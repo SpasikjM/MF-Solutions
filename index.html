@@ -272,6 +272,7 @@
       </p>
       <br />
       <h2>How to Use Our Catalog:</h2>
+      <div id="start"></div>
       <ol>
         <li>Take your time exploring our diverse selection.</li>
         <li>
@@ -285,6 +286,7 @@
         <li>Contact Information: email at: milosh.spasikj@gmail.com</li>
       </ol>
     </div>
+
 
     <div class="filter-container">
       <label for="category-filter">Filter by Category:</label>
@@ -1276,6 +1278,8 @@
         let currentPage = 1;
         const totalPages = Object.keys(catalogData).length;
 
+        window.data = catalogData;
+
         const renderCatalog = (page, category = 'all') => {
           catalogContainer.innerHTML = '';
           const section = document.createElement('div');
@@ -1357,6 +1361,7 @@
           renderCatalog(currentPage, category);
           renderPagination(category);
           setupPaginationListeners(category);
+          document.querySelector('#start').scrollIntoView();
         };
 
         const setupPaginationListeners = (category) => {
@@ -1394,8 +1399,18 @@
 
         filterDropdown.addEventListener('change', () => {
           const selectedCategory = filterDropdown.value;
-          updatePage(1, selectedCategory); // Reset to page 1 on category change
+          let currentPage = findFirstKeyByCategory(catalogData, selectedCategory);
+          updatePage(currentPage, selectedCategory); 
         });
+
+        function findFirstKeyByCategory(data, categoryToFind) {
+          for (const key in data) {
+            if (data[key].some(item => item.category === categoryToFind)) {
+              return key;
+            }
+          }
+          return null;
+        }
 
         updatePage(1);
       });
