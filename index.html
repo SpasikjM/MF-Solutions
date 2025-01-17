@@ -249,8 +249,8 @@
         <ul>
           <li><a href="home.html">Home</a></li>
           <li><a href="index.html">Catalog</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -283,10 +283,13 @@
           Inquire: Contact our friendly team for pricing, customization options,
           and any additional information.
         </li>
-        <li>Contact Information: email at: milosh.spasikj@gmail.com</li>
+        <li>
+          Contact Information:
+          <a href="mailto:milosh.spasikj@gmail.com">milosh.spasikj@gmail.com</a>
+        </li>
+        <li>Phone #: +1 (303) 961-1959</li>
       </ol>
     </div>
-
 
     <div class="filter-container">
       <label for="category-filter">Filter by Category:</label>
@@ -384,48 +387,48 @@
               category: 'basic',
             },
             {
-              title: '1717',
+              title: '2013',
               img: 'assets/img/MF Solutions Catalog_Page_011 1.png',
               fullWidth: true,
               category: 'basic',
             },
             {
-              title: '2013',
+              title: '823/2515',
               img: 'assets/img/MF Solutions Catalog_Page_012 1.png',
               category: 'basic',
             },
             {
-              title: '1717',
+              title: '2013',
               img: 'assets/img/MF Solutions Catalog_Page_012 2.png',
               category: 'basic',
             },
           ],
           3: [
             {
-              title: '1717',
+              title: '2313',
               img: 'assets/img/MF Solutions Catalog_Page_013.png',
               fullWidth: true,
               category: 'basic',
             },
             {
-              title: '1717',
+              title: '2313',
               img: 'assets/img/MF Solutions Catalog_Page_014.png',
               fullWidth: true,
               category: 'basic',
             },
             {
-              title: '1717',
+              title: '2313',
               img: 'assets/img/MF Solutions Catalog_Page_015.png',
               fullWidth: true,
               category: 'basic',
             },
             {
-              title: '2013',
+              title: '2313',
               img: 'assets/img/MF Solutions Catalog_Page_016-1.png',
               category: 'basic',
             },
             {
-              title: '1717',
+              title: '2313',
               img: 'assets/img/MF Solutions Catalog_Page_016.png',
               category: 'basic',
             },
@@ -452,18 +455,18 @@
               category: 'basic',
             },
             {
-              title: '1717',
+              title: '3020',
               img: 'assets/img/MF Solutions Catalog_Page_019.png',
               fullWidth: true,
               category: 'basic',
             },
             {
-              title: '715',
+              title: '3020',
               img: 'assets/img/MF Solutions Catalog_Page_020.png',
               category: 'basic',
             },
             {
-              title: '715',
+              title: '4020',
               img: 'assets/img/MF Solutions Catalog_Page_020-1.png',
               category: 'basic',
             },
@@ -1399,13 +1402,16 @@
 
         filterDropdown.addEventListener('change', () => {
           const selectedCategory = filterDropdown.value;
-          let currentPage = findFirstKeyByCategory(catalogData, selectedCategory);
-          updatePage(currentPage, selectedCategory); 
+          let currentPage = findFirstKeyByCategory(
+            catalogData,
+            selectedCategory
+          );
+          updatePage(currentPage, selectedCategory);
         });
 
         function findFirstKeyByCategory(data, categoryToFind) {
           for (const key in data) {
-            if (data[key].some(item => item.category === categoryToFind)) {
+            if (data[key].some((item) => item.category === categoryToFind)) {
               return key;
             }
           }
