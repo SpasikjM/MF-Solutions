@@ -11,6 +11,15 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       /* Navigation Bar Styles */
@@ -64,13 +73,13 @@
         background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
         background-size: cover;
         background-position: center;
-        height: 300px;
+        height: 500px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
         color: #fff;
         padding: 0 120px;
-        margin-bottom: 60px;
+        margin-bottom: 120px;
       }
 
       .hero-content h1 {
@@ -86,17 +95,24 @@
 
       /* Main Content */
       .main-content {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+
+      /* Contact Information Wrapper */
+      .contact-info-wrapper {
         max-width: 1296px;
-        margin: 20px auto;
+        margin: 0 auto;
         padding: 0 20px;
       }
 
       /* Contact Information Cards */
       .contact-info {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: nowrap;
         gap: 30px;
-        margin-bottom: 40px;
+        justify-content: center;
+        align-items: stretch;
       }
 
       .info-card {
@@ -104,6 +120,8 @@
         padding: 30px;
         border-radius: 5px;
         text-align: center;
+        flex: 1;
+        max-width: calc(33.333% - 30px);
       }
 
       .info-card h3 {
@@ -111,13 +129,27 @@
         margin-top: 0;
       }
 
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .info-card {
+          flex: 1 1 100%; /* Stacks cards vertically on smaller screens */
+          max-width: 100%;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .contact-info {
+          grid-template-columns: 1fr; /* Stacks the cards vertically on smaller screens */
+        }
+      }
 
       /* Footer */
       footer {
         text-align: center;
         padding: 20px;
         background-color: #f4f4f4;
-        margin-top: 30px;
+        margin-top: auto;
       }
 
       /* Responsive Design */
@@ -150,37 +182,43 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="contact" class="hero-section">
-      <div class="hero-content">
-        <h1>Contact Us</h1>
-        <p>Get in touch with our team of framing experts.</p>
-      </div>
-    </section>
-
-    <!-- Main Content -->
-    <section class="main-content">
-      <!-- Contact Information -->
-      <div class="contact-info">
-        <div class="info-card">
-          <h3>Business Hours</h3>
-          <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-          <p>Saturday: By appointment</p>
-          <p>Sunday: Closed</p>
+    <!-- Page Wrapper -->
+    <div class="page-wrapper">
+      <!-- Hero Section -->
+      <section id="contact" class="hero-section">
+        <div class="hero-content">
+          <h1>Contact Us</h1>
+          <p>Get in touch with our team of framing experts.</p>
         </div>
+      </section>
 
-        <div class="info-card">
-          <h3>Contact Information</h3>
-          <p>Phone: (303) 961-1959</p>
-          <p>Email: milosh.spasikj@gmail.com</p>
-        </div>
+      <!-- Main Content -->
+      <section class="main-content">
+        <!-- Contact Information Section -->
+        <div class="contact-info-wrapper">
+          <div class="contact-info">
+            <div class="info-card">
+              <h3>Business Hours</h3>
+              <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+              <p>Saturday: By appointment</p>
+              <p>Sunday: Closed</p>
+            </div>
 
-        <div class="info-card">
-          <h3>Location</h3>
-          <p>TBD</p>
-          <p>Boulder, CO 80303</p>
+            <div class="info-card">
+              <h3>Contact Information</h3>
+              <p>Phone: (303) 961-1959</p>
+              <p>Email: milosh.spasikj@gmail.com</p>
+            </div>
+
+            <div class="info-card">
+              <h3>Location</h3>
+              <p>TBD</p>
+              <p>Boulder, CO 80303</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+    </div>
 
     <!-- Footer -->
     <footer>

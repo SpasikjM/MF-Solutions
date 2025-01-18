@@ -11,6 +11,15 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
       }
 
       /* Navigation Bar Styles */
@@ -70,7 +79,7 @@
         justify-content: flex-start;
         color: #fff;
         padding: 0 120px;
-        margin-bottom: 120px; /* Added spacing below the hero section */
+        margin-bottom: 120px;
       }
 
       .hero-content h1 {
@@ -134,64 +143,71 @@
 
       /* Footer */
       footer {
+        background-color: #f4f4f4;
         text-align: center;
         padding: 20px;
-        background-color: #f4f4f4;
-        margin-top: 30px;
+        margin-top: auto;
       }
     </style>
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav>
-      <div class="nav-container">
-        <div class="logo">
-          <a href="#home">
-            <img src="assets/img/Logo_white.png" alt="Company Logo" />
-          </a>
+    <div class="page-wrapper">
+      <!-- Navigation Bar -->
+      <nav>
+        <div class="nav-container">
+          <div class="logo">
+            <a href="#home">
+              <img src="assets/img/Logo_white.png" alt="Company Logo" />
+            </a>
+          </div>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Catalog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
         </div>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="index.html">Catalog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-      <div class="hero-content">
-        <h1>Welcome to Master Frame Solutions</h1>
-        <p>Your ultimate source for premium mouldings and framing solutions.</p>
-      </div>
-    </section>
+      <!-- Hero Section -->
+      <section id="home" class="hero-section">
+        <div class="hero-content">
+          <h1>Welcome to Master Frame Solutions</h1>
+          <p>
+            Your ultimate source for premium mouldings and framing solutions.
+          </p>
+        </div>
+      </section>
 
-    <!-- Main Section -->
-    <section class="main-content">
-      <div class="section">
-        <!-- Text Content -->
-        <div class="text-content">
-          <h2>Why Choose Us?</h2>
-          <p>
-            At Master Frame Solutions, we pride ourselves on offering a wide
-            variety of high-quality mouldings and frames that cater to every
-            design need. From traditional to modern styles, we have it all.
-          </p>
-          <p>
-            Our team is dedicated to providing exceptional service and
-            innovative solutions to our valued customers. Explore our catalog to
-            find the perfect fit for your next project.
-          </p>
-          <!-- Call to Action Button -->
-          <a href="index.html" class="cta-button">Explore our catalog</a>
+      <!-- Main Section -->
+      <section class="main-content">
+        <div class="section">
+          <!-- Text Content -->
+          <div class="text-content">
+            <h2>Why Choose Us?</h2>
+            <p>
+              At Master Frame Solutions, we pride ourselves on offering a wide
+              variety of high-quality mouldings and frames that cater to every
+              design need. From traditional to modern styles, we have it all.
+            </p>
+            <p>
+              Our team is dedicated to providing exceptional service and
+              innovative solutions to our valued customers. Explore our catalog
+              to find the perfect fit for your next project.
+            </p>
+            <!-- Call to Action Button -->
+            <a href="index.html" class="cta-button">Explore our catalog</a>
+          </div>
+          <!-- Image Container -->
+          <div class="image-container">
+            <img
+              src="assets/img/Section_one_img_02.png"
+              alt="Mouldings Sample"
+            />
+          </div>
         </div>
-        <!-- Image Container -->
-        <div class="image-container">
-          <img src="assets/img/Section_one_img_02.png" alt="Mouldings Sample" />
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Footer -->
     <footer>
