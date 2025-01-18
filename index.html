@@ -10,6 +10,15 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
       }
 
       /* Navigation Bar Styles */
@@ -22,10 +31,6 @@
         z-index: 1000;
       }
 
-      nav .logo img {
-        max-height: 40px; /* Adjust logo height */
-      }
-
       nav .nav-container {
         max-width: 1296px;
         margin: 0 auto;
@@ -33,6 +38,10 @@
         align-items: center;
         justify-content: space-between;
         padding: 10px 20px;
+      }
+
+      nav .logo img {
+        max-height: 40px; /* Adjust logo height */
       }
 
       nav .logo {
@@ -63,6 +72,7 @@
         color: #f0a500;
       }
 
+      /* Hero Section */
       .hero-section {
         position: relative;
         background-image: url('assets/img/MF Solutions Catalog_Page_hero.png'); /* Replace with your hero image path */
@@ -71,17 +81,10 @@
         height: 500px;
         display: flex;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
         color: #fff;
-        margin-bottom: 120px;
-      }
-
-      .hero-content {
-        position: relative;
-        text-align: left;
-        z-index: 1;
-        max-width: 800px;
         padding: 0 120px;
+        margin-bottom: 120px;
       }
 
       .hero-content h1 {
@@ -94,7 +97,6 @@
       .hero-content p {
         font-size: 18px;
         margin-top: 10px;
-        font-weight: normal;
       }
 
       .intro-section {
@@ -238,80 +240,82 @@
     </style>
   </head>
   <body>
-    <!-- Nav Bar Section -->
-    <nav>
-      <div class="nav-container">
-        <div class="logo">
-          <a href="#home">
-            <img src="assets/img/Logo_white.png" alt="Company Logo" />
-          </a>
+    <div class="page-wrapper">
+      <!-- Nav Bar Section -->
+      <nav>
+        <div class="nav-container">
+          <div class="logo">
+            <a href="#home">
+              <img src="assets/img/Logo_white.png" alt="Company Logo" />
+            </a>
+          </div>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Catalog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
         </div>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="index.html">Catalog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
 
-    <!-- Hero Section -->
-    <div class="hero-section">
-      <div class="hero-content">
-        <h1>Explore Our Moulding Catalog</h1>
-        <p>Discover high-quality mouldings and enhance your designs.</p>
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1>Explore Our Moulding Catalog</h1>
+          <p>Discover high-quality mouldings and enhance your designs.</p>
+        </div>
       </div>
-    </div>
-    <div class="intro-section">
-      <h2>Moulding Catalog</h2>
-      <p>
-        At Master Frame Solutions , we understand that finding the perfect
-        product is crucial. That's why we've introduced a powerful catalog
-        filtering feature to streamline your search and help you discover
-        exactly what you're looking for.
-      </p>
-      <br />
-      <h2>How to Use Our Catalog:</h2>
-      <div id="start"></div>
-      <ol>
-        <li>Take your time exploring our diverse selection.</li>
-        <li>
-          Select: Note the product codes and collection of the mouldings that
-          catch your eye.
-        </li>
-        <li>
-          Inquire: Contact our friendly team for pricing, customization options,
-          and any additional information.
-        </li>
-        <li>
-          Contact Information:
-          <a href="mailto:info@masterframesolution.com"
-            >info@masterframesolution.com</a
-          >
-        </li>
-        <li>Phone #: +1 (303) 961-1959</li>
-      </ol>
-      <h4>
-        Moulding profile height, profile width and rebate height are stated in
-        millimeters!
-      </h4>
-    </div>
+      <div class="intro-section">
+        <h2>Moulding Catalog</h2>
+        <p>
+          At Master Frame Solutions , we understand that finding the perfect
+          product is crucial. That's why we've introduced a powerful catalog
+          filtering feature to streamline your search and help you discover
+          exactly what you're looking for.
+        </p>
+        <br />
+        <h2>How to Use Our Catalog:</h2>
+        <div id="start"></div>
+        <ol>
+          <li>Take your time exploring our diverse selection.</li>
+          <li>
+            Select: Note the product codes and collection of the mouldings that
+            catch your eye.
+          </li>
+          <li>
+            Inquire: Contact our friendly team for pricing, customization
+            options, and any additional information.
+          </li>
+          <li>
+            Contact Information:
+            <a href="mailto:info@masterframesolution.com"
+              >info@masterframesolution.com</a
+            >
+          </li>
+          <li>Phone #: +1 (303) 961-1959</li>
+        </ol>
+        <h4>
+          Moulding profile height, profile width and rebate height are stated in
+          millimeters!
+        </h4>
+      </div>
 
-    <div class="filter-container">
-      <label for="category-filter">Filter by Category:</label>
-      <select id="category-filter">
-        <option value="all">All</option>
-        <option value="basic">Basic</option>
-        <option value="l-shapes">L-Shapes</option>
-        <option value="classics">Classics</option>
-        <option value="paper-veneers">Paper Veneers</option>
-        <option value="synthetiks">Synthetics</option>
-        <option value="raw">
-          Raw, Passepartouts, Spacers, Stretcher Bars, Solid Oak
-        </option>
-        <option value="artbox">Artbox</option>
-        <option value="fsc-wood">FSC Wood</option>
-      </select>
+      <div class="filter-container">
+        <label for="category-filter">Filter by Category:</label>
+        <select id="category-filter">
+          <option value="all">All</option>
+          <option value="basic">Basic</option>
+          <option value="l-shapes">L-Shapes</option>
+          <option value="classics">Classics</option>
+          <option value="paper-veneers">Paper Veneers</option>
+          <option value="synthetiks">Synthetics</option>
+          <option value="raw">
+            Raw, Passepartouts, Spacers, Stretcher Bars, Solid Oak
+          </option>
+          <option value="artbox">Artbox</option>
+          <option value="fsc-wood">FSC Wood</option>
+        </select>
+      </div>
     </div>
 
     <div class="catalog-container" id="catalog"></div>

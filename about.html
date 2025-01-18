@@ -11,6 +11,15 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       /* Navigation Bar Styles */
@@ -34,6 +43,12 @@
 
       nav .logo img {
         max-height: 40px;
+      }
+
+      nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: white;
       }
 
       nav ul {
@@ -64,7 +79,7 @@
         background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
         background-size: cover;
         background-position: center;
-        height: 400px;
+        height: 500px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -76,6 +91,7 @@
       .hero-content h1 {
         font-size: 36px;
         margin: 0;
+        padding: 0;
         font-weight: bold;
       }
 
@@ -163,116 +179,119 @@
     </style>
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav>
-      <div class="nav-container">
-        <div class="logo">
-          <a href="home.html">
-            <img src="assets/img/Logo_white.png" alt="Company Logo" />
-          </a>
+    <div class="page-wrapper">
+      <!-- Navigation Bar -->
+      <nav>
+        <div class="nav-container">
+          <div class="logo">
+            <a href="home.html">
+              <img src="assets/img/Logo_white.png" alt="Company Logo" />
+            </a>
+          </div>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Catalog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
         </div>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="index.html">Catalog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="hero-section">
-      <div class="hero-content">
-        <h1>Our Story</h1>
-        <p>Crafting excellence in framing solutions</p>
-      </div>
-    </section>
+      <!-- Hero Section -->
+      <section id="about" class="hero-section">
+        <div class="hero-content">
+          <h1>Our Story</h1>
+          <p>Crafting excellence in framing solutions</p>
+        </div>
+      </section>
 
-    <!-- Main Section -->
-    <section class="main-content">
-      <div class="section">
-        <div class="text-content">
-          <h2>About Master Frame Solutions</h2>
-          <p>
-            Master Frame Solutions is making its way to the forefront of the
-            framing industry, providing exceptional quality mouldings and
-            innovative framing solutions to professionals and businesses
-            worldwide.
-          </p>
-          <p>
-            Our journey begins with a simple mission: to create premium framing
-            products that combine traditional craftsmanship with modern design
-            sensibilities. Today, we're proud to be a part of the supplier
-            industry, serving customers across the USA with our extensive
-            collection of mouldings and frames.
-          </p>
+      <!-- Main Section -->
+      <section class="main-content">
+        <div class="section">
+          <div class="text-content">
+            <h2>About Master Frame Solutions</h2>
+            <p>
+              Master Frame Solutions is making its way to the forefront of the
+              framing industry, providing exceptional quality mouldings and
+              innovative framing solutions to professionals and businesses
+              worldwide.
+            </p>
+            <p>
+              Our journey begins with a simple mission: to create premium
+              framing products that combine traditional craftsmanship with
+              modern design sensibilities. Today, we're proud to be a part of
+              the supplier industry, serving customers across the USA with our
+              extensive collection of mouldings and frames.
+            </p>
+          </div>
+          <div class="image-container">
+            <img
+              src="assets/img/Key_features_full_img.png"
+              alt="Company History"
+            />
+          </div>
         </div>
-        <div class="image-container">
-          <img
-            src="assets/img/Key_features_full_img.png"
-            alt="Company History"
-          />
-        </div>
-      </div>
 
-      <div class="section">
-        <div class="image-container">
-          <img src="assets/img/Section_two_img_02.png" alt="Our Process" />
+        <div class="section">
+          <div class="image-container">
+            <img src="assets/img/Section_two_img_02.png" alt="Our Process" />
+          </div>
+          <div class="text-content">
+            <h2>Our Commitment to Quality</h2>
+            <p>
+              Quality is at the heart of everything we do. We carefully select
+              the finest materials and employ rigorous quality control measures
+              throughout our manufacturing process. Our team of skilled
+              craftsmen combines traditional techniques with cutting-edge
+              technology to create products that meet the highest industry
+              standards.
+            </p>
+            <p>
+              We believe in sustainable practices and responsible sourcing,
+              ensuring that our products not only look beautiful but also
+              respect our environment.
+            </p>
+          </div>
         </div>
-        <div class="text-content">
-          <h2>Our Commitment to Quality</h2>
-          <p>
-            Quality is at the heart of everything we do. We carefully select the
-            finest materials and employ rigorous quality control measures
-            throughout our manufacturing process. Our team of skilled craftsmen
-            combines traditional techniques with cutting-edge technology to
-            create products that meet the highest industry standards.
-          </p>
-          <p>
-            We believe in sustainable practices and responsible sourcing,
-            ensuring that our products not only look beautiful but also respect
-            our environment.
-          </p>
-        </div>
-      </div>
 
-      <h2>Our Core Values</h2>
-      <div class="values-grid">
-        <div class="value-card">
-          <h3>Excellence</h3>
-          <p>
-            We strive for excellence in every product we create and every
-            service we provide.
-          </p>
+        <h2>Our Core Values</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <h3>Excellence</h3>
+            <p>
+              We strive for excellence in every product we create and every
+              service we provide.
+            </p>
+          </div>
+          <div class="value-card">
+            <h3>Innovation</h3>
+            <p>
+              We continuously explore new designs and technologies to stay ahead
+              of industry trends.
+            </p>
+          </div>
+          <div class="value-card">
+            <h3>Integrity</h3>
+            <p>
+              We maintain the highest standards of honesty and transparency in
+              all our business dealings.
+            </p>
+          </div>
         </div>
-        <div class="value-card">
-          <h3>Innovation</h3>
-          <p>
-            We continuously explore new designs and technologies to stay ahead
-            of industry trends.
-          </p>
-        </div>
-        <div class="value-card">
-          <h3>Integrity</h3>
-          <p>
-            We maintain the highest standards of honesty and transparency in all
-            our business dealings.
-          </p>
-        </div>
-      </div>
 
-      <div class="section">
-        <div class="text-content">
-          <h2>Join Our Network</h2>
-          <p>
-            Whether you're an art gallery, frame shop, or interior designer,
-            we're here to support your success with our premium products and
-            exceptional service.
-          </p>
-          <a href="contact.html" class="cta-button">Contact Us Today</a>
+        <div class="section">
+          <div class="text-content">
+            <h2>Join Our Network</h2>
+            <p>
+              Whether you're an art gallery, frame shop, or interior designer,
+              we're here to support your success with our premium products and
+              exceptional service.
+            </p>
+            <a href="contact.html" class="cta-button">Contact Us Today</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Footer -->
     <footer>
