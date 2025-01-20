@@ -156,6 +156,20 @@
         padding: 20px;
         margin-top: auto;
       }
+
+      @media (max-width: 768px) {
+        .main-content .section {
+          flex-direction: column; /* Stack items vertically */
+        }
+
+        .main-content .image-container {
+          order: -1; /* Move the image container to the top */
+        }
+
+        .main-content .content-container {
+          order: 1; /* Content stays below the image */
+        }
+      }
     </style>
   </head>
   <body>
