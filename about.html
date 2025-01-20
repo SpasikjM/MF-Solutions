@@ -217,6 +217,20 @@
       }
 
       @media (max-width: 768px) {
+        .main-content .section {
+          flex-direction: column; /* Stack items vertically */
+        }
+
+        .main-content .image-container {
+          order: -1; /* Move the image container to the top */
+        }
+
+        .main-content .content-container {
+          order: 1; /* Content stays below the image */
+        }
+      }
+
+      @media (max-width: 768px) {
         .hamburger {
           display: flex;
         }
@@ -224,6 +238,15 @@
         .nav-menu {
           display: none;
           width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-content .value-section {
+          flex-direction: column; /* Stack items vertically */
+        }
+        .value-card {
+          flex: 1 1 100%; /* Stack cards in a column on smaller screens */
         }
       }
     </style>
