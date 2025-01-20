@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Master Frame Solutions - Contact Us</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/Logo_variation_01.png">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/img/Logo_variation_01.png"
+    />
     <style>
       /* General Styles */
       body {
@@ -112,29 +116,29 @@
       }
       /* Hero Section */
       .hero-section {
-  position: relative;
-  background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
-  background-size: cover;
-  background-position: center;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  color: #fff;
-  padding: 0 120px;
-  margin-bottom: 120px;
-}
+        position: relative;
+        background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: #fff;
+        padding: 0 120px;
+        margin-bottom: 120px;
+      }
 
-.hero-content h1 {
-  font-size: 36px;
-  margin: 0;
-  font-weight: bold;
-}
+      .hero-content h1 {
+        font-size: 36px;
+        margin: 0;
+        font-weight: bold;
+      }
 
-.hero-content p {
-  font-size: 18px;
-  margin-top: 10px;
-}
+      .hero-content p {
+        font-size: 18px;
+        margin-top: 10px;
+      }
 
       /* Main Content */
       .main-content {
@@ -284,61 +288,61 @@
       }
 
       @media (max-width: 768px) {
-  .hero-section {
-    padding: 0 40px; /* Reduce horizontal padding */
-    height: 400px; /* Adjust height for smaller screens */
-  }
+        .hero-section {
+          padding: 0 40px; /* Reduce horizontal padding */
+          height: 400px; /* Adjust height for smaller screens */
+        }
 
-  .hero-content h1 {
-    font-size: 28px; /* Smaller heading for smaller screens */
-  }
+        .hero-content h1 {
+          font-size: 28px; /* Smaller heading for smaller screens */
+        }
 
-  .hero-content p {
-    font-size: 16px; /* Adjust paragraph size */
-  }
-}
+        .hero-content p {
+          font-size: 16px; /* Adjust paragraph size */
+        }
+      }
 
-@media (max-width: 480px) {
-  .hero-section {
-    padding: 0 20px; /* Further reduce padding for very small screens */
-    height: 300px; /* Adjust height for extra-small screens */
-  }
+      @media (max-width: 480px) {
+        .hero-section {
+          padding: 0 20px; /* Further reduce padding for very small screens */
+          height: 300px; /* Adjust height for extra-small screens */
+        }
 
-  .hero-content h1 {
-    font-size: 22px; /* Make heading more compact */
-  }
+        .hero-content h1 {
+          font-size: 22px; /* Make heading more compact */
+        }
 
-  .hero-content p {
-    font-size: 14px; /* Reduce paragraph size further */
-  }
-}
+        .hero-content p {
+          font-size: 14px; /* Reduce paragraph size further */
+        }
+      }
     </style>
   </head>
   <body>
     <div class="page-wrapper">
-        <!-- Nav Bar Section -->
-        <nav>
-          <div class="nav-container">
-            <div class="logo">
-              <a href="#home">
-                <img src="assets/img/Logo_white.png" alt="Company Logo" />
-              </a>
-            </div>
-            <!-- Hamburger Menu Icon -->
-            <div class="hamburger" id="hamburger">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <!-- Navigation Links -->
-            <ul class="nav-menu" id="nav-menu">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="catalog.html">Catalog</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
+      <!-- Nav Bar Section -->
+      <nav>
+        <div class="nav-container">
+          <div class="logo">
+            <a href="#home">
+              <img src="assets/img/Logo_white.png" alt="Company Logo" />
+            </a>
           </div>
-        </nav>
+          <!-- Hamburger Menu Icon -->
+          <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <!-- Navigation Links -->
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
 
       <!-- Hero Section -->
       <section id="contact" class="hero-section">
@@ -409,20 +413,23 @@
         </div>
       </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Master Frame Solutions. All rights reserved.</p>
-    </footer>
-    <script>
-      window.onload = () => {
-        window.scrollTo(0, 0);
-      };
-      const hamburger = document.getElementById('hamburger');
-      const navMenu = document.getElementById('nav-menu');
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2025 Master Frame Solutions. All rights reserved.</p>
+      </footer>
 
-      hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-      });
-    </script>
-    </body>
+      <script>
+        window.onload = () => {
+          window.scrollTo(0, 0);
+        };
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+        });
+      </script>
+    </div>
+    <!-- End of page-wrapper -->
+  </body>
 </html>
