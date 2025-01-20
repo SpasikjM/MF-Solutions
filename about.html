@@ -128,7 +128,6 @@
       .hero-content h1 {
         font-size: 36px;
         margin: 0;
-        padding: 0;
         font-weight: bold;
       }
 
@@ -247,6 +246,36 @@
         }
         .value-card {
           flex: 1 1 100%; /* Stack cards in a column on smaller screens */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 0 40px; /* Reduce horizontal padding */
+          height: 400px; /* Adjust height for smaller screens */
+        }
+
+        .hero-content h1 {
+          font-size: 28px; /* Smaller heading for smaller screens */
+        }
+
+        .hero-content p {
+          font-size: 16px; /* Adjust paragraph size */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-section {
+          padding: 0 20px; /* Further reduce padding for very small screens */
+          height: 300px; /* Adjust height for extra-small screens */
+        }
+
+        .hero-content h1 {
+          font-size: 22px; /* Make heading more compact */
+        }
+
+        .hero-content p {
+          font-size: 14px; /* Reduce paragraph size further */
         }
       }
     </style>

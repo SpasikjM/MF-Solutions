@@ -109,32 +109,31 @@
         margin: 10px 0;
         text-align: center;
       }
-
       /* Hero Section */
       .hero-section {
-        position: relative;
-        background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
-        background-size: cover;
-        background-position: center;
-        height: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        color: #fff;
-        padding: 0 120px;
-        margin-bottom: 120px;
-      }
+  position: relative;
+  background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  padding: 0 120px;
+  margin-bottom: 120px;
+}
 
-      .hero-content h1 {
-        font-size: 36px;
-        margin: 0;
-        font-weight: bold;
-      }
+.hero-content h1 {
+  font-size: 36px;
+  margin: 0;
+  font-weight: bold;
+}
 
-      .hero-content p {
-        font-size: 18px;
-        margin-top: 10px;
-      }
+.hero-content p {
+  font-size: 18px;
+  margin-top: 10px;
+}
 
       /* Main Content */
       .main-content {
@@ -282,6 +281,36 @@
           width: 100%;
         }
       }
+
+      @media (max-width: 768px) {
+  .hero-section {
+    padding: 0 40px; /* Reduce horizontal padding */
+    height: 400px; /* Adjust height for smaller screens */
+  }
+
+  .hero-content h1 {
+    font-size: 28px; /* Smaller heading for smaller screens */
+  }
+
+  .hero-content p {
+    font-size: 16px; /* Adjust paragraph size */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 0 20px; /* Further reduce padding for very small screens */
+    height: 300px; /* Adjust height for extra-small screens */
+  }
+
+  .hero-content h1 {
+    font-size: 22px; /* Make heading more compact */
+  }
+
+  .hero-content p {
+    font-size: 14px; /* Reduce paragraph size further */
+  }
+}
     </style>
   </head>
   <body>
@@ -310,8 +339,6 @@
           </div>
         </nav>
 
-    <!-- Page Wrapper -->
-    <div class="page-wrapper">
       <!-- Hero Section -->
       <section id="contact" class="hero-section">
         <div class="hero-content">
@@ -380,7 +407,6 @@
           </div>
         </div>
       </section>
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -397,5 +423,5 @@
         navMenu.classList.toggle('active');
       });
     </script>
-  </body>
+    </body>
 </html>
