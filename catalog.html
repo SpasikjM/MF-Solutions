@@ -144,7 +144,7 @@
         color: #333;
         text-align: left;
       }
-
+      /* Filter section */
       .filter-container {
         max-width: 1296px;
         margin: 20px auto;
@@ -312,6 +312,24 @@
 
         .hero-content p {
           font-size: 14px; /* Reduce paragraph size further */
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .filter-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .filter-container label {
+          font-size: 14px;
+          margin-bottom: 5px;
+        }
+
+        .filter-container select {
+          width: 100%;
+          font-size: 12px;
+          padding: 8px 10px;
         }
       }
     </style>
