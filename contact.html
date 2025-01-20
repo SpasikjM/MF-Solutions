@@ -42,7 +42,13 @@
       }
 
       nav .logo img {
-        max-height: 40px;
+        max-height: 40px; /* Adjust logo height */
+      }
+
+      nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: white;
       }
 
       nav ul {
@@ -65,6 +71,43 @@
 
       nav ul li a:hover {
         color: #f0a500;
+      }
+
+      /* Hamburger Menu Styles */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+        transition: all 0.3s;
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-menu.active li {
+        margin: 10px 0;
+        text-align: center;
       }
 
       /* Hero Section */
@@ -108,21 +151,21 @@
       }
 
       /* Contact Information Cards */
-      .contact-info {
+      .info-section {
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         gap: 30px;
-        justify-content: center;
-        align-items: stretch;
+        justify-content: space-between;
+        margin-top: 40px;
       }
 
       .info-card {
         background-color: #f4f4f4;
-        padding: 30px;
+        padding: 20px;
         border-radius: 5px;
         text-align: center;
-        flex: 1;
-        max-width: calc(33.333% - 30px);
+        flex: 1 1 calc(33.333% - 30px);
+        box-sizing: border-box;
       }
 
       .info-card h3 {
@@ -219,25 +262,53 @@
         background-color: #f4f4f4;
         margin-top: auto;
       }
+
+      @media (max-width: 768px) {
+        .main-content .info-section {
+          flex-direction: column; /* Stack items vertically */
+        }
+        .main-content .subscribe-section-wrapper {
+          flex-direction: column; /* Stack items vertically */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-menu {
+          display: none;
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav>
-      <div class="nav-container">
-        <div class="logo">
-          <a href="home.html">
-            <img src="assets/img/Logo_white.png" alt="Company Logo" />
-          </a>
-        </div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="catalog.html">Catalog</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+    <div class="page-wrapper">
+        <!-- Nav Bar Section -->
+        <nav>
+          <div class="nav-container">
+            <div class="logo">
+              <a href="#home">
+                <img src="assets/img/Logo_white.png" alt="Company Logo" />
+              </a>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger" id="hamburger">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <!-- Navigation Links -->
+            <ul class="nav-menu" id="nav-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="catalog.html">Catalog</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
 
     <!-- Page Wrapper -->
     <div class="page-wrapper">
@@ -253,7 +324,7 @@
       <section class="main-content">
         <!-- Contact Information Section -->
         <div class="contact-info-wrapper">
-          <div class="contact-info">
+          <div class="info-section">
             <div class="info-card">
               <h3>Business Hours</h3>
               <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
@@ -315,5 +386,16 @@
     <footer>
       <p>&copy; 2025 Master Frame Solutions. All rights reserved.</p>
     </footer>
+    <script>
+      window.onload = () => {
+        window.scrollTo(0, 0);
+      };
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>

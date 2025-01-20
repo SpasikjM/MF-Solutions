@@ -42,7 +42,7 @@
       }
 
       nav .logo img {
-        max-height: 40px;
+        max-height: 40px; /* Adjust logo height */
       }
 
       nav .logo {
@@ -71,6 +71,43 @@
 
       nav ul li a:hover {
         color: #f0a500;
+      }
+
+      /* Hamburger Menu Styles */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+        transition: all 0.3s;
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-menu.active li {
+        margin: 10px 0;
+        text-align: center;
       }
 
       /* Hero Section */
@@ -132,10 +169,11 @@
       }
 
       /* Values Section */
-      .values-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+      .values-section {
+        display: flex;
+        flex-wrap: wrap; /* Allows wrapping to the next row for smaller screens */
+        gap: 30px; /* Space between the cards */
+        justify-content: space-between; /* Evenly distributes cards */
         margin-top: 40px;
       }
 
@@ -144,11 +182,12 @@
         padding: 20px;
         border-radius: 5px;
         text-align: center;
+        flex: 1 1 calc(33.333% - 30px);
+        box-sizing: border-box;
       }
 
       .value-card h3 {
-        color: #f0a500;
-        margin-bottom: 15px;
+        color: #eda200;
       }
 
       /* CTA Button */
@@ -176,19 +215,37 @@
         background-color: #f4f4f4;
         margin-top: 30px;
       }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-menu {
+          display: none;
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="page-wrapper">
-      <!-- Navigation Bar -->
+      <!-- Nav Bar Section -->
       <nav>
         <div class="nav-container">
           <div class="logo">
-            <a href="home.html">
+            <a href="#home">
               <img src="assets/img/Logo_white.png" alt="Company Logo" />
             </a>
           </div>
-          <ul>
+          <!-- Hamburger Menu Icon -->
+          <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <!-- Navigation Links -->
+          <ul class="nav-menu" id="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="catalog.html">Catalog</a></li>
             <li><a href="about.html">About</a></li>
@@ -255,7 +312,7 @@
         </div>
 
         <h2>Our Core Values</h2>
-        <div class="values-grid">
+        <div class="values-section">
           <div class="value-card">
             <h3>Excellence</h3>
             <p>
@@ -297,5 +354,16 @@
     <footer>
       <p>&copy; 2025 Master Frame Solutions. All rights reserved.</p>
     </footer>
+    <script>
+      window.onload = () => {
+        window.scrollTo(0, 0);
+      };
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>
