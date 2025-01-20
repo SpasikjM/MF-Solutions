@@ -1449,11 +1449,14 @@
         };
 
         const updatePage = (page, category = 'all') => {
-          currentPage = page;
+          currentPage = page ?? 1;
           renderCatalog(currentPage, category);
           renderPagination(category);
           setupPaginationListeners(category);
-          document.querySelector('#start').scrollIntoView();
+          const startElement = document.querySelector('#start');
+          if (startElement) {
+            startElement.scrollIntoView();
+          }
         };
 
         const setupPaginationListeners = (category) => {
@@ -1495,6 +1498,7 @@
             catalogData,
             selectedCategory
           );
+          console.log(selectedCategory, currentPage);
           updatePage(currentPage, selectedCategory);
         });
 
