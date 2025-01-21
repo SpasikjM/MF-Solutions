@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master Frame Solutions - Services</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      /* Navigation Bar */
+      nav {
+        background-color: #333;
+        color: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      nav .nav-container {
+        max-width: 1296px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+      }
+
+      nav .logo img {
+        max-height: 40px;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1em;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #f0a500;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+        transition: all 0.3s;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: #fff;
+        padding: 0 120px;
+        margin-bottom: 120px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+
+      /* Main Content */
+      .main-content {
+        max-width: 1296px;
+        margin: 60px auto 80px;
+        padding: 0 20px;
+      }
+
+      .section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+
+      .section:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .text-content {
+        flex: 1;
+        padding-right: 20px;
+      }
+
+      .section:nth-child(even) .text-content {
+        padding-right: 0;
+        padding-left: 20px;
+      }
+
+      .text-content h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .text-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+      }
+
+      .image-container {
+        flex: 1;
+        text-align: center;
+      }
+
+      .image-container img {
+        max-width: 100%;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+        margin-top: auto;
+      }
+
+      footer p {
+        margin: 0;
+        font-size: 14px;
+        color: #777;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .section {
+          flex-direction: column;
+        }
+
+        .text-content {
+          text-align: center;
+          padding-right: 0;
+        }
+
+        .section:nth-child(even) .text-content {
+          padding-left: 0;
+        }
+
+        .image-container {
+          margin-top: 20px;
+          height: 100px;
+        }
+
+        .hero-section {
+          height: 300px;
+          padding: 0 10px;
+        }
+
+        .hero-content h1 {
+          font-size: 28px;
+        }
+
+        .hero-content p {
+          font-size: 16px;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-menu {
+          display: none;
+          flex-direction: column;
+          background-color: #333;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-menu.active {
+          display: flex;
+        }
+
+        .nav-menu li {
+          text-align: center;
+          margin: 10px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- Nav Bar Section -->
+      <nav>
+        <div class="nav-container">
+          <div class="logo">
+            <a href="#home">
+              <img src="assets/img/Logo_white.png" alt="Company Logo" />
+            </a>
+          </div>
+          <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="services-hero" class="hero-section">
+        <div class="hero-content">
+          <h1>Our Services</h1>
+          <p>From custom framing to moulding supply, we've got you covered.</p>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <section class="main-content">
+        <div class="section">
+          <div class="text-content">
+            <h2>Custom Framing</h2>
+            <p>
+              Enhance your artwork with our expert custom framing services. Each
+              frame is meticulously crafted to perfectly complement your piece,
+              elevating its beauty and ensuring it stands out in any setting.
+              Our team of experienced professionals works closely with you to
+              understand your vision, providing tailored solutions that match
+              your style and preferences.
+            </p>
+          </div>
+          <div class="image-container">
+            <img src="assets/img/custom_framing.png" alt="Custom Framing" />
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="text-content">
+            <h2>Moulding Supply</h2>
+            <p>
+              Our moulding supply offers an extensive selection of designs that
+              cater to a wide range of tastes and professional needs. From
+              timeless, handcrafted wooden mouldings to sleek and modern
+              synthetic options, our collection is crafted to inspire creativity
+              and elevate your projects. Whether you're a professional artist, a
+              gallery owner, or a designer, we ensure every piece meets the
+              highest standards of quality and style.
+            </p>
+          </div>
+          <div class="image-container">
+            <img src="assets/img/frame_supply_02.png" alt="Moulding Supply" />
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="text-content">
+            <h2>Chop Shop Services</h2>
+            <p>
+              Get precise cuts for your projects with our reliable chop shop
+              services, ensuring accuracy every time. Our experienced craftsmen
+              use advanced equipment and techniques to deliver flawless, clean
+              cuts on a variety of materials, including wood, metal, and
+              acrylic. Whether you need moulding for frames, paneling for custom
+              projects, or other bespoke cutting needs, we guarantee
+              professional results that meet your exact specifications.
+            </p>
+          </div>
+          <div class="image-container">
+            <img src="assets/img/chop_shop.png" alt="Chop Shop Services" />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Master Frame Solutions. All rights reserved.</p>
+    </footer>
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+    </script>
+  </body>
+</html>
