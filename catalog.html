@@ -1423,10 +1423,14 @@
                 ? `<div class="image-title">Moulding code <span>${title}</span></div>`
                 : '';
 
+              // Wrap the image in an anchor tag to open it in a new tab
               container.innerHTML = `
-          ${titleHTML}
-          <img src="${img}" alt="${title || 'Moulding'}" />
-        `;
+      ${titleHTML}
+      <a href="${img}" target="_blank" rel="noopener noreferrer">
+        <img src="${img}" alt="${title || 'Moulding'}" />
+      </a>
+    `;
+
               section.appendChild(container);
             });
 
