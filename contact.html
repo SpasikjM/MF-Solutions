@@ -318,6 +318,92 @@
         }
       }
 
+      /* Form Styles */
+      #mc_embed_signup {
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: auto;
+        font-family: Arial, sans-serif;
+      }
+
+      #mc_embed_signup h2 {
+        font-size: 22px;
+        color: #333;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      #mc_embed_signup label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #555;
+      }
+
+      #mc_embed_signup input[type='email'] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+
+      #mc_embed_signup input[type='email']:focus {
+        outline: none;
+        border-color: #f0a500;
+        box-shadow: 0 0 5px rgba(240, 165, 0, 0.5);
+      }
+
+      #mc_embed_signup .button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #f0a500;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-align: center;
+      }
+
+      #mc_embed_signup .button:hover {
+        background-color: #d48800;
+      }
+
+      #mc_embed_signup .indicates-required {
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 10px;
+      }
+
+      #mc_embed_signup .response {
+        font-size: 14px;
+        margin-top: 10px;
+        display: none; /* Hide default responses unless triggered */
+      }
+
+      #mc_embed_signup .response.error {
+        color: red;
+      }
+
+      #mc_embed_signup .response.success {
+        color: green;
+      }
+
+      @media (max-width: 768px) {
+        form {
+          padding: 15px;
+        }
+      }
+
       @media (max-width: 768px) {
         .main-section {
           margin-bottom: 40px;
@@ -413,16 +499,6 @@
         </div>
 
         <div id="mc_embed_shell">
-          <link
-            href="//cdn-images.mailchimp.com/embedcode/classic-061523.css"
-            rel="stylesheet"
-            type="text/css"
-          />
-          <style type="text/css">
-            #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
-            /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-               We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-          </style>
           <div id="mc_embed_signup">
             <form
               action="https://masterframesolutions.us14.list-manage.com/subscribe/post?u=8134f5389ce603697c30def5c&amp;id=f6452d9301&amp;f_id=0025d3e0f0"
