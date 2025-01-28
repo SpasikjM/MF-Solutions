@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frame Moulding Order Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        line-height: 1.6;
+      }
+
+      .order-form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+      }
+
+      .order-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .order-form label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+
+      .required {
+        color: red;
+      }
+
+      .order-form input,
+      .order-form textarea,
+      .order-form button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .order-form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .order-form button:hover {
+        background-color: #0056b3;
+      }
+
+      .row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .row input {
+        flex: 1;
+      }
+
+      .add-moulding-btn {
+        background-color: #28a745;
+        color: white;
+        margin-top: 10px;
+      }
+
+      .add-moulding-btn:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="order-form">
+      <h2>Frame Moulding Order Form</h2>
+      <form id="order-form" action="javascript:void(0);" onsubmit="sendOrder()">
+        <!-- Customer Information -->
+        <label for="name">Full Name <span class="required">*</span></label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+
+        <label for="email">Email <span class="required">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+
+        <label for="phone">Phone Number <span class="required">*</span></label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Your Phone Number"
+          required
+        />
+
+        <label for="company">Company <span class="required">*</span></label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          placeholder="Your Company Name"
+          required
+        />
+
+        <label for="tax-id">Tax ID <span class="required">*</span></label>
+        <input
+          type="text"
+          id="tax-id"
+          name="tax_id"
+          placeholder="Your Tax Identification Number"
+          required
+        />
+
+        <!-- Frame Moulding Details -->
+        <label>Moulding Details</label>
+        <div id="moulding-details">
+          <div class="row">
+            <input
+              type="text"
+              name="moulding_code[]"
+              placeholder="Moulding Code"
+              required
+            />
+            <input
+              type="number"
+              name="sticks_quantity[]"
+              placeholder="Sticks Quantity (Min: 3)"
+              min="1"
+              required
+            />
+            <input
+              type="number"
+              name="box_quantity[]"
+              placeholder="Box Quantity"
+              min="1"
+              required
+            />
+          </div>
+        </div>
+        <button
+          type="button"
+          class="add-moulding-btn"
+          onclick="addMouldingRow()"
+        >
+          Add Another Moulding
+        </button>
+
+        <!-- Additional Notes -->
+        <label for="notes">Additional Notes (Optional)</label>
+        <textarea
+          id="notes"
+          name="notes"
+          rows="4"
+          placeholder="Add any specific requests or details"
+        ></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Order</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      // Initialize EmailJS with your user ID
+      emailjs.init('YUbq91C5NhyTQr84aA'); // Replace with your actual EmailJS User ID
+
+      function sendOrder() {
+        // Gather the form data
+        var formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          company: document.getElementById('company').value,
+          tax_id: document.getElementById('tax-id').value,
+          moulding_code: document.getElementsByName('moulding_code[]')[0].value,
+          sticks_quantity:
+            document.getElementsByName('sticks_quantity[]')[0].value,
+          box_quantity: document.getElementsByName('box_quantity[]')[0].value,
+          notes: document.getElementById('notes').value,
+        };
+
+        // Send the email using EmailJS
+        emailjs.send('service_khur6xl', 'template_kmm8qtp', formData).then(
+          function (response) {
+            alert('Order successfully sent!');
+          },
+          function (error) {
+            alert('Failed to send order. Please try again.');
+          }
+        );
+      }
+
+      function addMouldingRow() {
+        const mouldingDetails = document.getElementById('moulding-details');
+        const row = document.createElement('div');
+        row.className = 'row';
+        row.innerHTML = `
+          <input
+            type="text"
+            name="moulding_code[]"
+            placeholder="Moulding Code"
+            required
+          />
+          <input
+            type="number"
+            name="sticks_quantity[]"
+            placeholder="Sticks Quantity (Min: 3)"
+            min="1"
+            required
+          />
+          <input
+            type="number"
+            name="box_quantity[]"
+            placeholder="Box Quantity"
+            min="1"
+            required
+          />
+        `;
+        mouldingDetails.appendChild(row);
+      }
+
+      // Optional: Add validation for minimum sticks or feet condition
+      function validateForm() {
+        const sticks = document.getElementsByName('sticks_quantity[]');
+        let valid = true;
+
+        for (let i = 0; i < sticks.length; i++) {
+          const sticksValue = parseInt(sticks[i].value || 0, 10);
+          const feet = sticksValue * 9; // Assuming each stick is 9 feet
+
+          if (sticksValue < 3 && feet < 27) {
+            alert(
+              `Moulding ${i + 1}: Minimum requirement is 3 sticks or 27 feet.`
+            );
+            valid = false;
+            break;
+          }
+        }
+
+        return valid; // Prevents form submission if validation fails
+      }
+    </script>
+  </body>
+</html>
