@@ -128,39 +128,25 @@
           required
         />
 
-        <!-- Frame Moulding Details -->
-        <label>Moulding Details</label>
-        <div id="moulding-details">
-          <div class="row">
-            <input
-              type="text"
-              name="moulding_code[]"
-              placeholder="Moulding Code"
-              required
-            />
-            <input
-              type="number"
-              name="sticks_quantity[]"
-              placeholder="Sticks Quantity (Min: 3)"
-              min="1"
-              required
-            />
-            <input
-              type="number"
-              name="box_quantity[]"
-              placeholder="Box Quantity"
-              min="1"
-              required
-            />
-          </div>
-        </div>
-        <button
-          type="button"
-          class="add-moulding-btn"
-          onclick="addMouldingRow()"
+        <!-- Company Address Section -->
+        <label for="address1"
+          >Company Address 1 <span class="required">*</span></label
         >
-          Add Another Moulding
-        </button>
+        <input
+          type="text"
+          id="address1"
+          name="address1"
+          placeholder="Address Line 1"
+          required
+        />
+
+        <label for="address2">Company Address 2</label>
+        <input
+          type="text"
+          id="address2"
+          name="address2"
+          placeholder="Address Line 2"
+        />
 
         <!-- Additional Notes -->
         <label for="notes">Additional Notes (Optional)</label>
@@ -199,22 +185,10 @@
           phone: document.getElementById('phone').value,
           company: document.getElementById('company').value,
           tax_id: document.getElementById('tax-id').value,
+          address1: document.getElementById('address1').value,
+          address2: document.getElementById('address2').value,
           notes: document.getElementById('notes').value,
-          moulding_code: [],
-          sticks_quantity: [],
-          box_quantity: [],
         };
-
-        const mouldingCodes = document.getElementsByName('moulding_code[]');
-        const sticksQuantities =
-          document.getElementsByName('sticks_quantity[]');
-        const boxQuantities = document.getElementsByName('box_quantity[]');
-
-        for (let i = 0; i < mouldingCodes.length; i++) {
-          formData.moulding_code.push(mouldingCodes[i].value);
-          formData.sticks_quantity.push(sticksQuantities[i].value);
-          formData.box_quantity.push(boxQuantities[i].value);
-        }
 
         console.log('Sending the following data to EmailJS:', formData);
 
@@ -229,18 +203,6 @@
             console.error('Error sending email:', error);
             alert('Failed to send order. Error: ' + JSON.stringify(error));
           });
-      }
-
-      function addMouldingRow() {
-        const mouldingDetails = document.getElementById('moulding-details');
-        const row = document.createElement('div');
-        row.className = 'row';
-        row.innerHTML = `
-          <input type="text" name="moulding_code[]" placeholder="Moulding Code" required />
-          <input type="number" name="sticks_quantity[]" placeholder="Sticks Quantity (Min: 3)" min="1" required />
-          <input type="number" name="box_quantity[]" placeholder="Box Quantity" min="1" required />
-        `;
-        mouldingDetails.appendChild(row);
       }
     </script>
   </body>
