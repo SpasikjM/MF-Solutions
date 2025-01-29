@@ -7,14 +7,109 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        margin: 20px;
+        margin: 0;
         padding: 0;
-        line-height: 1.6;
+        box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Navigation Bar Styles */
+      nav {
+        background-color: #333;
+        color: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      nav .nav-container {
+        max-width: 1296px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+      }
+
+      nav .logo img {
+        max-height: 40px;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1em;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #f0a500;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        background-image: url("assets/img/MF Solutions Catalog_Page_hero.png");
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: #fff;
+        padding: 0 120px;
+        margin-bottom: 120px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+
+      /* Main Content Layout */
+      .main-content {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        gap: 40px;
+      }
+
+      .description {
+        flex: 1;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 10px;
       }
 
       .order-form {
-        max-width: 600px;
-        margin: 0 auto;
+        flex: 1;
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 10px;
@@ -23,17 +118,12 @@
 
       .order-form h2 {
         text-align: center;
-        margin-bottom: 20px;
       }
 
       .order-form label {
         font-weight: bold;
         display: block;
         margin-top: 10px;
-      }
-
-      .required {
-        color: red;
       }
 
       .order-form input,
@@ -57,153 +147,130 @@
         background-color: #0056b3;
       }
 
-      .row {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 10px;
-      }
-
-      .row input {
-        flex: 1;
-      }
-
-      .add-moulding-btn {
-        background-color: #28a745;
-        color: white;
-        margin-top: 10px;
-      }
-
-      .add-moulding-btn:hover {
-        background-color: #218838;
+      .required {
+        color: red;
       }
     </style>
   </head>
   <body>
-    <div class="order-form">
-      <h2>Frame Moulding Order Form</h2>
-      <form id="order-form" onsubmit="sendOrder(event)">
-        <!-- Customer Information -->
-        <label for="name">Full Name <span class="required">*</span></label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your Name"
-          required
-        />
+    <div class="page-wrapper">
+      <!-- Nav Bar Section -->
+      <nav>
+        <div class="nav-container">
+          <div class="logo">
+            <a href="#home">
+              <img src="assets/img/Logo_white.png" alt="Company Logo" />
+            </a>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="order.html">Request price</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
 
-        <label for="email">Email <span class="required">*</span></label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Your Email"
-          required
-        />
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>Request price list</h1>
+          <p>Submit your company information and get our price list</p>
+        </div>
+      </section>
 
-        <label for="phone">Phone Number <span class="required">*</span></label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          placeholder="Your Phone Number"
-          required
-        />
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="description">
+          <h2>Why Choose Our Frame Moulding?</h2>
+          <p>
+            We offer high-quality, customizable frame moulding solutions tailored to your needs. Whether you're looking for a unique style or a bulk order, we ensure the best materials and craftsmanship.
+          </p>
+          <p>
+            Our team is here to guide you through the process, providing recommendations and ensuring that you get exactly what you're looking for.
+          </p>
+          <p>Fill out the form on the right to request a quote today!</p>
+        </div>
 
-        <label for="company">Company <span class="required">*</span></label>
-        <input
-          type="text"
-          id="company"
-          name="company"
-          placeholder="Your Company Name"
-          required
-        />
+        <!-- Order Form -->
+        <div class="order-form">
+          <h2>Frame Moulding price list request info</h2>
+          <form id="order-form" onsubmit="sendOrder(event)">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
 
-        <label for="taxid">Tax ID <span class="required">*</span></label>
-        <input
-          type="text"
-          id="tax-id"
-          name="tax_id"
-          placeholder="Your Tax Identification Number"
-          required
-        />
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required />
 
-        <!-- Company Address Section -->
-        <label for="address1"
-          >Company Address 1 <span class="required">*</span></label
-        >
-        <input
-          type="text"
-          id="address1"
-          name="address1"
-          placeholder="Address Line 1"
-          required
-        />
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required />
 
-        <label for="address2">Company Address 2</label>
-        <input
-          type="text"
-          id="address2"
-          name="address2"
-          placeholder="Address Line 2"
-        />
+            <label for="company">Company <span class="required">*</span></label>
+            <input type="text" id="company" name="company" placeholder="Your Company Name" required />
 
-        <!-- Additional Notes -->
-        <label for="notes">Additional Notes (Optional)</label>
-        <textarea
-          id="notes"
-          name="notes"
-          rows="4"
-          placeholder="Add any specific requests or details"
-        ></textarea>
+            <label for="taxid">Tax ID <span class="required">*</span></label>
+            <input type="text" id="taxid" name="taxid" placeholder="Your Company Tax ID" required />
 
-        <!-- Submit Button -->
-        <button type="submit">Submit Order</button>
-      </form>
+            <label for="address1">Company Address 1 <span class="required">*</span></label>
+            <input type="text" id="address1" name="address1" placeholder="Address Line 1" required />
+
+            <label for="address2">Company Address 2</label>
+            <input type="text" id="address2" name="address2" placeholder="Address Line 2" required/>
+
+            <label for="notes">Additional Notes (Optional)</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Add any specific requests"></textarea>
+
+            <button type="submit">Submit Order</button>
+          </form>
+        </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-      // Ensure EmailJS is loaded and initialized after the script is included
-      window.onload = function () {
-        emailjs.init('OJVgP-qF6ARb2G5Ru'); // Replace with your actual public key
-      };
-
-      function sendOrder(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-
-        console.log('Initializing EmailJS...');
-        if (!emailjs) {
-          console.error('EmailJS library is not loaded.');
-          alert('EmailJS is not loaded. Please check your script reference.');
-          return;
-        }
-
-        var formData = {
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          company: document.getElementById('company').value,
-          tax_id: document.getElementById('taxid').value,
-          address1: document.getElementById('address1').value,
-          address2: document.getElementById('address2').value,
-          notes: document.getElementById('notes').value,
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+      <script>
+        // Ensure EmailJS is loaded and initialized after the script is included
+        window.onload = function () {
+          emailjs.init('OJVgP-qF6ARb2G5Ru'); // Replace with your actual public key
         };
 
-        console.log('Sending the following data to EmailJS:', formData);
+        function sendOrder(event) {
+          event.preventDefault(); // Prevent the form from submitting normally
 
-        emailjs
-          .send('service_khur6xl', 'template_kmm8qtp', formData)
-          .then(function (response) {
-            console.log('Email sent successfully:', response);
-            alert('Order successfully sent!');
-            document.getElementById('order-form').reset();
-          })
-          .catch(function (error) {
-            console.error('Error sending email:', error);
-            alert('Failed to send order. Error: ' + JSON.stringify(error));
-          });
-      }
-    </script>
+          console.log('Initializing EmailJS...');
+          if (!emailjs) {
+            console.error('EmailJS library is not loaded.');
+            alert('EmailJS is not loaded. Please check your script reference.');
+            return;
+          }
+
+          var formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            company: document.getElementById('company').value,
+            tax_id: document.getElementById('taxid').value,
+            address1: document.getElementById('address1').value,
+            address2: document.getElementById('address2').value,
+            notes: document.getElementById('notes').value,
+          };
+
+          console.log('Sending the following data to EmailJS:', formData);
+
+          emailjs
+            .send('service_khur6xl', 'template_kmm8qtp', formData)
+            .then(function (response) {
+              console.log('Email sent successfully:', response);
+              alert('Order successfully sent!');
+              document.getElementById('order-form').reset();
+            })
+            .catch(function (error) {
+              console.error('Error sending email:', error);
+              alert('Failed to send order. Error: ' + JSON.stringify(error));
+            });
+        }
+      </script>
+    </div>
   </body>
 </html>
