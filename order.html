@@ -233,18 +233,6 @@
           });
       }
 
-      // Send the email using EmailJS
-      emailjs.send('service_khur6xl', 'template_kmm8qtp', formData).then(
-        function (response) {
-          alert('Order successfully sent!');
-          // Optionally reset the form here
-          document.getElementById('order-form').reset();
-        },
-        function (error) {
-          alert('Failed to send order. Please try again.');
-        }
-      );
-
       function addMouldingRow() {
         const mouldingDetails = document.getElementById('moulding-details');
         const row = document.createElement('div');
