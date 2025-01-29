@@ -180,19 +180,10 @@
 
     <script>
       // Initialize EmailJS with your user ID
-      emailjs.init('Ubq91C5NhyTQr84aA'); // Replace with your actual EmailJS User ID
-
       function sendOrder(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
+        event.preventDefault(); // Prevent default form submission
 
-        console.log('Initializing EmailJS...');
-
-        if (!emailjs) {
-          console.error('EmailJS library is not loaded.');
-          alert('EmailJS is not loaded. Please check your script reference.');
-          return;
-        }
-
+        // Gather the form data
         var formData = {
           name: document.getElementById('name').value,
           email: document.getElementById('email').value,
@@ -205,28 +196,29 @@
           box_quantity: [],
         };
 
-        const mouldingCodes = document.getElementsByName('moulding_code[]');
-        const sticksQuantities =
-          document.getElementsByName('sticks_quantity[]');
-        const boxQuantities = document.getElementsByName('box_quantity[]');
+        // Get moulding details
+        document
+          .querySelectorAll('[name="moulding_code[]"]')
+          .forEach((input, index) => {
+            formData.moulding_code.push(input.value);
+            formData.sticks_quantity.push(
+              document.querySelectorAll('[name="sticks_quantity[]"]')[index]
+                .value
+            );
+            formData.box_quantity.push(
+              document.querySelectorAll('[name="box_quantity[]"]')[index].value
+            );
+          });
 
-        for (let i = 0; i < mouldingCodes.length; i++) {
-          formData.moulding_code.push(mouldingCodes[i].value);
-          formData.sticks_quantity.push(sticksQuantities[i].value);
-          formData.box_quantity.push(boxQuantities[i].value);
-        }
-
-        console.log('Sending the following data to EmailJS:', formData);
-
+        // Send email using EmailJS
         emailjs
           .send('service_khur6xl', 'template_kmm8qtp', formData)
           .then(function (response) {
-            console.log('Email sent successfully:', response);
             alert('Order successfully sent!');
             document.getElementById('order-form').reset();
           })
           .catch(function (error) {
-            console.error('Error sending email:', error);
+            console.error('EmailJS Error:', error);
             alert('Failed to send order. Error: ' + JSON.stringify(error));
           });
       }
@@ -248,10 +240,10 @@
         const row = document.createElement('div');
         row.className = 'row';
         row.innerHTML = `
-                <input type="text" name="moulding_code[]" placeholder="Moulding Code" required />
-                <input type="number" name="sticks_quantity[]" placeholder="Sticks Quantity (Min: 3)" min="1" required />
-                <input type="number" name="box_quantity[]" placeholder="Box Quantity" min="1" required />
-              `;
+                      <input type="text" name="moulding_code[]" placeholder="Moulding Code" required />
+                      <input type="number" name="sticks_quantity[]" placeholder="Sticks Quantity (Min: 3)" min="1" required />
+                      <input type="number" name="box_quantity[]" placeholder="Box Quantity" min="1" required />
+                    `;
         mouldingDetails.appendChild(row);
       }
     </script>
