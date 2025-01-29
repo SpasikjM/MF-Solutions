@@ -45,6 +45,12 @@
         max-height: 40px;
       }
 
+      nav .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: white;
+      }
+
       nav ul {
         list-style: none;
         margin: 0;
@@ -67,10 +73,47 @@
         color: #f0a500;
       }
 
+      /* Hamburger Menu Styles */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1001;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+        transition: all 0.3s ease;
+      }
+
+      /* Hamburger animation classes */
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+      }
+
       /* Hero Section */
       .hero-section {
         position: relative;
-        background-image: url("assets/img/MF Solutions Catalog_Page_hero.png");
+        background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
         background-size: cover;
         background-position: center;
         height: 500px;
@@ -151,6 +194,67 @@
       .required {
         color: red;
       }
+
+      @media (max-width: 868px) {
+        .main-content {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-menu {
+          position: fixed;
+          right: -100%;
+          top: 60px;
+          flex-direction: column;
+          background-color: #333;
+          width: 100%;
+          padding: 20px 0;
+          text-align: center;
+          transition: right 0.3s ease;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-menu.active {
+          right: 0;
+        }
+
+        .nav-menu li {
+          margin: 16px 0;
+        }
+
+        .hero-section {
+          padding: 0 40px;
+          height: 400px;
+        }
+
+        .hero-content h1 {
+          font-size: 28px;
+        }
+
+        .hero-content p {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-section {
+          padding: 0 20px;
+          height: 300px;
+        }
+
+        .hero-content h1 {
+          font-size: 22px;
+        }
+
+        .hero-content p {
+          font-size: 14px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -162,6 +266,11 @@
             <a href="#home">
               <img src="assets/img/Logo_white.png" alt="Company Logo" />
             </a>
+          </div>
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
           <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
@@ -187,12 +296,19 @@
         <div class="description">
           <h2>Why Choose Our Frame Moulding?</h2>
           <p>
-            We offer high-quality, customizable frame moulding solutions tailored to your needs. Whether you're looking for a unique style or a bulk order, we ensure the best materials and craftsmanship.
+            We offer high-quality, customizable frame moulding solutions
+            tailored to your needs. Whether you're looking for a unique style or
+            a bulk order, we ensure the best materials and craftsmanship.
           </p>
           <p>
-            Our team is here to guide you through the process, providing recommendations and ensuring that you get exactly what you're looking for.
+            Our team is here to guide you through the process, providing
+            recommendations and ensuring that you get exactly what you're
+            looking for.
           </p>
-          <p>Fill out the form on the right to request a price list for our mouldings today!</p>
+          <p>
+            Fill out the form on the right to request a price list for our
+            mouldings today!
+          </p>
         </div>
 
         <!-- Order Form -->
@@ -200,28 +316,79 @@
           <h2>Frame Moulding price list request info</h2>
           <form id="order-form" onsubmit="sendOrder(event)">
             <label for="name">Full Name <span class="required">*</span></label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              required
+            />
 
             <label for="email">Email <span class="required">*</span></label>
-            <input type="email" id="email" name="email" placeholder="Your Email" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
 
-            <label for="phone">Phone Number <span class="required">*</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required />
+            <label for="phone"
+              >Phone Number <span class="required">*</span></label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Your Phone Number"
+              required
+            />
 
             <label for="company">Company <span class="required">*</span></label>
-            <input type="text" id="company" name="company" placeholder="Your Company Name" required />
+            <input
+              type="text"
+              id="company"
+              name="company"
+              placeholder="Your Company Name"
+              required
+            />
 
             <label for="taxid">Tax ID <span class="required">*</span></label>
-            <input type="text" id="taxid" name="taxid" placeholder="Your Company Tax ID" required />
+            <input
+              type="text"
+              id="taxid"
+              name="taxid"
+              placeholder="Your Company Tax ID"
+              required
+            />
 
-            <label for="address1">Company Address 1 <span class="required">*</span></label>
-            <input type="text" id="address1" name="address1" placeholder="Address Line 1" required />
+            <label for="address1"
+              >Company Address 1 <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              id="address1"
+              name="address1"
+              placeholder="Address Line 1"
+              required
+            />
 
             <label for="address2">Company Address 2</label>
-            <input type="text" id="address2" name="address2" placeholder="Address Line 2" required/>
+            <input
+              type="text"
+              id="address2"
+              name="address2"
+              placeholder="Address Line 2"
+              required
+            />
 
             <label for="notes">Additional Notes (Optional)</label>
-            <textarea id="notes" name="notes" rows="4" placeholder="Add any specific requests"></textarea>
+            <textarea
+              id="notes"
+              name="notes"
+              rows="4"
+              placeholder="Add any specific requests"
+            ></textarea>
 
             <button type="submit">Submit Order</button>
           </form>
@@ -229,49 +396,74 @@
       </div>
     </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-      <script>
-        // Ensure EmailJS is loaded and initialized after the script is included
-        window.onload = function () {
-          emailjs.init('OJVgP-qF6ARb2G5Ru'); // Replace with your actual public key
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      // Initialize EmailJS
+      window.onload = function () {
+        emailjs.init('OJVgP-qF6ARb2G5Ru');
+      };
+
+      // Hamburger menu functionality
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Close menu when clicking a nav link
+      document.querySelectorAll('.nav-menu a').forEach((link) => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        }
+      });
+
+      // Form submission handling
+      function sendOrder(event) {
+        event.preventDefault();
+
+        console.log('Initializing EmailJS...');
+        if (!emailjs) {
+          console.error('EmailJS library is not loaded.');
+          alert('EmailJS is not loaded. Please check your script reference.');
+          return;
+        }
+
+        var formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          company: document.getElementById('company').value,
+          tax_id: document.getElementById('taxid').value,
+          address1: document.getElementById('address1').value,
+          address2: document.getElementById('address2').value,
+          notes: document.getElementById('notes').value,
         };
 
-        function sendOrder(event) {
-          event.preventDefault(); // Prevent the form from submitting normally
+        console.log('Sending the following data to EmailJS:', formData);
 
-          console.log('Initializing EmailJS...');
-          if (!emailjs) {
-            console.error('EmailJS library is not loaded.');
-            alert('EmailJS is not loaded. Please check your script reference.');
-            return;
-          }
-
-          var formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            company: document.getElementById('company').value,
-            tax_id: document.getElementById('taxid').value,
-            address1: document.getElementById('address1').value,
-            address2: document.getElementById('address2').value,
-            notes: document.getElementById('notes').value,
-          };
-
-          console.log('Sending the following data to EmailJS:', formData);
-
-          emailjs
-            .send('service_khur6xl', 'template_kmm8qtp', formData)
-            .then(function (response) {
-              console.log('Email sent successfully:', response);
-              alert('Order successfully sent!');
-              document.getElementById('order-form').reset();
-            })
-            .catch(function (error) {
-              console.error('Error sending email:', error);
-              alert('Failed to send order. Error: ' + JSON.stringify(error));
-            });
-        }
-      </script>
-    </div>
+        emailjs
+          .send('service_khur6xl', 'template_kmm8qtp', formData)
+          .then(function (response) {
+            console.log('Email sent successfully:', response);
+            alert('Order successfully sent!');
+            document.getElementById('order-form').reset();
+          })
+          .catch(function (error) {
+            console.error('Error sending email:', error);
+            alert('Failed to send order. Error: ' + JSON.stringify(error));
+          });
+      }
+    </script>
   </body>
 </html>
