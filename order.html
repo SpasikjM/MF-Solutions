@@ -81,7 +81,7 @@
   <body>
     <div class="order-form">
       <h2>Frame Moulding Order Form</h2>
-      <form id="order-form" action="javascript:void(0);" onsubmit="sendOrder()">
+      <form id="order-form" onsubmit="sendOrder(event)">
         <!-- Customer Information -->
         <label for="name">Full Name <span class="required">*</span></label>
         <input
@@ -176,11 +176,14 @@
       </form>
     </div>
 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
       // Initialize EmailJS with your user ID
       emailjs.init('YUbq91C5NhyTQr84aA'); // Replace with your actual EmailJS User ID
 
-      function sendOrder() {
+      function sendOrder(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
         // Gather the form data
         var formData = {
           name: document.getElementById('name').value,
@@ -210,6 +213,8 @@
         emailjs.send('service_khur6xl', 'template_kmm8qtp', formData).then(
           function (response) {
             alert('Order successfully sent!');
+            // Optionally reset the form here
+            document.getElementById('order-form').reset();
           },
           function (error) {
             alert('Failed to send order. Please try again.');
@@ -222,49 +227,11 @@
         const row = document.createElement('div');
         row.className = 'row';
         row.innerHTML = `
-            <input
-              type="text"
-              name="moulding_code[]"
-              placeholder="Moulding Code"
-              required
-            />
-            <input
-              type="number"
-              name="sticks_quantity[]"
-              placeholder="Sticks Quantity (Min: 3)"
-              min="1"
-              required
-            />
-            <input
-              type="number"
-              name="box_quantity[]"
-              placeholder="Box Quantity"
-              min="1"
-              required
-            />
-          `;
+          <input type="text" name="moulding_code[]" placeholder="Moulding Code" required />
+          <input type="number" name="sticks_quantity[]" placeholder="Sticks Quantity (Min: 3)" min="1" required />
+          <input type="number" name="box_quantity[]" placeholder="Box Quantity" min="1" required />
+        `;
         mouldingDetails.appendChild(row);
-      }
-
-      // Optional: Add validation for minimum sticks or feet condition
-      function validateForm() {
-        const sticks = document.getElementsByName('sticks_quantity[]');
-        let valid = true;
-
-        for (let i = 0; i < sticks.length; i++) {
-          const sticksValue = parseInt(sticks[i].value || 0, 10);
-          const feet = sticksValue * 9; // Assuming each stick is 9 feet
-
-          if (sticksValue < 3 && feet < 27) {
-            alert(
-              `Moulding ${i + 1}: Minimum requirement is 3 sticks or 27 feet.`
-            );
-            valid = false;
-            break;
-          }
-        }
-
-        return valid; // Prevents form submission if validation fails
       }
     </script>
   </body>
