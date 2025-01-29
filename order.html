@@ -176,19 +176,17 @@
       </form>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-    >
-      // Initialize EmailJS with your user ID
-      emailjs.init({
-        publicKey: 'OJVgP-qF6ARb2G5Ru', // Replace with your actual public key
-      });
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      // Ensure EmailJS is loaded and initialized after the script is included
+      window.onload = function () {
+        emailjs.init('OJVgP-qF6ARb2G5Ru'); // Replace with your actual public key
+      };
 
       function sendOrder(event) {
         event.preventDefault(); // Prevent the form from submitting normally
 
         console.log('Initializing EmailJS...');
-
         if (!emailjs) {
           console.error('EmailJS library is not loaded.');
           alert('EmailJS is not loaded. Please check your script reference.');
@@ -238,10 +236,10 @@
         const row = document.createElement('div');
         row.className = 'row';
         row.innerHTML = `
-                <input type="text" name="moulding_code[]" placeholder="Moulding Code" required />
-                <input type="number" name="sticks_quantity[]" placeholder="Sticks Quantity (Min: 3)" min="1" required />
-                <input type="number" name="box_quantity[]" placeholder="Box Quantity" min="1" required />
-              `;
+          <input type="text" name="moulding_code[]" placeholder="Moulding Code" required />
+          <input type="number" name="sticks_quantity[]" placeholder="Sticks Quantity (Min: 3)" min="1" required />
+          <input type="number" name="box_quantity[]" placeholder="Box Quantity" min="1" required />
+        `;
         mouldingDetails.appendChild(row);
       }
     </script>
