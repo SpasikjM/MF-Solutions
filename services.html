@@ -188,7 +188,7 @@
       }
 
       /* CTA Button */
-      .cta-button {
+      .cta-button-primary {
         display: inline-block;
         margin-top: 20px;
         padding: 10px 20px;
@@ -199,6 +199,20 @@
         font-weight: bold;
         border-radius: 5px;
         transition: background-color 0.3s;
+      }
+
+      .cta-button-secondary {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: transparent;
+        color: #f0a500;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: all 0.3s;
+        border: 2px solid #f0a500;
       }
 
       .cta-button:hover {
@@ -366,7 +380,7 @@
             </p>
           </div>
           <div class="image-container">
-            <img src="assets/img/custom_framing.png" alt="Custom Framing" />
+            <img src="assets/img/chop_shop.png" alt="Custom Framing" />
           </div>
         </div>
 
@@ -382,7 +396,12 @@
               gallery owner, or a designer, we ensure every piece meets the
               highest standards of quality and style.
             </p>
-            <a href="catalog.html" class="cta-button">Explore our catalog</a>
+            <a href="catalog.html" class="cta-button-primary"
+              >Explore our catalog</a
+            >
+            <a href="order.html" class="cta-button-secondary"
+              >Request a price list</a
+            >
           </div>
           <div class="image-container">
             <img src="assets/img/frame_supply_02.png" alt="Moulding Supply" />
@@ -403,7 +422,10 @@
             </p>
           </div>
           <div class="image-container">
-            <img src="assets/img/chop_shop.png" alt="Chop Shop Services" />
+            <img
+              src="assets/img/delivery_service.png"
+              alt="Chop Shop Services"
+            />
           </div>
         </div>
       </section>
