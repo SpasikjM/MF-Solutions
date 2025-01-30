@@ -18,11 +18,12 @@
       }
 
       .page-wrapper {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        flex: 1;
       }
 
+      /* Navigation Bar Styles */
       nav {
         background-color: #333;
         color: white;
@@ -42,7 +43,7 @@
       }
 
       nav .logo img {
-        max-height: 40px; /* Adjust logo height */
+        max-height: 40px;
       }
 
       nav .logo {
@@ -78,6 +79,8 @@
         display: none;
         flex-direction: column;
         cursor: pointer;
+        padding: 5px;
+        z-index: 1001;
       }
 
       .hamburger div {
@@ -85,29 +88,27 @@
         height: 3px;
         background-color: white;
         margin: 3px 0;
-        transition: all 0.3s;
+        transition: all 0.3s ease;
+      }
+
+      /* Hamburger animation classes */
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
       }
 
       .nav-menu {
         display: flex;
         flex-direction: row;
-      }
-
-      .nav-menu.active {
-        display: flex;
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 20px 0;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-      }
-
-      .nav-menu.active li {
-        margin: 10px 0;
-        text-align: center;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
       }
 
       /* Hero Section */
@@ -227,47 +228,52 @@
         }
 
         .nav-menu {
-          display: none;
+          position: fixed;
+          right: -100%;
+          top: 60px;
+          flex-direction: column;
+          background-color: #333;
           width: 100%;
+          padding: 20px 0;
+          text-align: center;
+          transition: right 0.3s ease;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-      }
 
-      @media (max-width: 768px) {
+        .nav-menu.active {
+          right: 0;
+        }
+
+        .nav-menu li {
+          margin: 16px 0;
+        }
+
         .hero-section {
-          padding: 0 40px; /* Reduce horizontal padding */
-          height: 400px; /* Adjust height for smaller screens */
+          padding: 0 40px;
+          height: 400px;
         }
 
         .hero-content h1 {
-          font-size: 28px; /* Smaller heading for smaller screens */
+          font-size: 28px;
         }
 
         .hero-content p {
-          font-size: 16px; /* Adjust paragraph size */
+          font-size: 16px;
         }
       }
 
       @media (max-width: 480px) {
         .hero-section {
-          padding: 0 20px; /* Further reduce padding for very small screens */
-          height: 300px; /* Adjust height for extra-small screens */
+          padding: 0 20px;
+          height: 300px;
         }
 
         .hero-content h1 {
-          font-size: 22px; /* Make heading more compact */
+          font-size: 22px;
         }
 
         .hero-content p {
-          font-size: 14px; /* Reduce paragraph size further */
-        }
-      }
-
-      @media (max-width: 768px) {
-        .main-section {
-          margin-bottom: 40px;
-        }
-        .hero-section {
-          margin-bottom: 40px;
+          font-size: 14px;
         }
       }
     </style>
@@ -436,11 +442,29 @@
       window.onload = () => {
         window.scrollTo(0, 0);
       };
-      const hamburger = document.getElementById('hamburger');
-      const navMenu = document.getElementById('nav-menu');
+      // Hamburger menu functionality
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
 
       hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+      });
+
+      // Close menu when clicking a nav link
+      document.querySelectorAll('.nav-menu a').forEach((link) => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        }
       });
     </script>
   </body>
