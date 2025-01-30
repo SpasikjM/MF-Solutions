@@ -212,8 +212,21 @@
       /* Make it responsive for smaller screens */
       @media screen and (max-width: 868px) {
         .main-content {
+          max-width: 100%;
           flex-direction: column;
           gap: 20px;
+        }
+
+        .description,
+        .order-form {
+          width: 100%;
+          max-width: 100%;
+          margin: 0;
+          padding: 15px;
+        }
+
+        .order-form {
+          border-radius: 0; /* Optional: remove border radius on mobile */
         }
       }
 
