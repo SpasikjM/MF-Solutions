@@ -139,7 +139,7 @@
       /* Main Content Layout */
       .main-content {
         display: flex;
-        max-width: 1200px;
+        max-width: 1296px;
         margin: 0 auto;
         padding: 20px;
         gap: 40px;
@@ -150,6 +150,8 @@
         padding: 20px;
         background-color: #f4f4f4;
         border-radius: 10px;
+        width: 50%; /* Set equal width */
+        max-width: 500px; /* Match order-form max-width */
       }
 
       .order-form {
@@ -158,6 +160,8 @@
         border: 1px solid #ccc;
         border-radius: 10px;
         background-color: #f9f9f9;
+        width: 50%; /* Set equal width */
+        max-width: 500px;
       }
 
       .order-form h2 {
@@ -175,9 +179,10 @@
       .order-form button {
         width: 100%;
         padding: 10px;
-        margin: 10px 0;
+        margin: 5px 0 15px; /* Adjust vertical spacing */
         border: 1px solid #ccc;
         border-radius: 5px;
+        box-sizing: border-box; /* Ensure padding doesn't affect width */
       }
 
       .order-form select {
@@ -190,23 +195,25 @@
       }
 
       .order-form button {
-        background-color: #007bff;
+        background-color: #f0a500;
         color: white;
         border: none;
         cursor: pointer;
       }
 
       .order-form button:hover {
-        background-color: #0056b3;
+        background-color: #d48800;
       }
 
       .required {
         color: red;
       }
 
-      @media (max-width: 868px) {
+      /* Make it responsive for smaller screens */
+      @media screen and (max-width: 868px) {
         .main-content {
           flex-direction: column;
+          gap: 20px;
         }
       }
 
@@ -262,6 +269,16 @@
 
         .hero-content p {
           font-size: 14px;
+        }
+      }
+
+      /* Media query for smaller screens */
+      @media screen and (max-width: 868px) {
+        .order-form {
+          max-width: 100%;
+          margin: 0;
+          padding: 15px;
+          border-radius: 0; /* Optional: remove border radius on mobile */
         }
       }
     </style>
