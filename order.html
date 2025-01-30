@@ -138,30 +138,24 @@
 
       /* Main Content Layout */
       .main-content {
-        display: flex;
         max-width: 1296px;
         margin: 0 auto;
         padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
         gap: 40px;
       }
 
-      .description {
-        flex: 1;
-        padding: 20px;
-        background-color: #f4f4f4;
-        border-radius: 10px;
-        width: 50%; /* Set equal width */
-        max-width: 500px; /* Match order-form max-width */
-      }
-
+      .description,
       .order-form {
         flex: 1;
+        min-width: 300px; /* Ensures responsiveness on smaller screens */
+        max-width: 50%; /* Keeps them balanced on larger screens */
         padding: 20px;
+        box-sizing: border-box;
         border: 1px solid #ccc;
-        border-radius: 10px;
-        background-color: #f9f9f9;
-        width: 50%; /* Set equal width */
-        max-width: 500px;
+        border-radius: 8px;
+        background: #f9f9f9;
       }
 
       .order-form h2 {
@@ -207,27 +201,6 @@
 
       .required {
         color: red;
-      }
-
-      /* Make it responsive for smaller screens */
-      @media screen and (max-width: 868px) {
-        .main-content {
-          max-width: 100%;
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .description,
-        .order-form {
-          width: 100%;
-          max-width: 100%;
-          margin: 0;
-          padding: 15px;
-        }
-
-        .order-form {
-          border-radius: 0; /* Optional: remove border radius on mobile */
-        }
       }
 
       @media (max-width: 768px) {
@@ -287,11 +260,16 @@
 
       /* Media query for smaller screens */
       @media screen and (max-width: 868px) {
+        .main-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .description,
         .order-form {
           max-width: 100%;
-          margin: 0;
+          min-width: auto;
           padding: 15px;
-          border-radius: 0; /* Optional: remove border radius on mobile */
         }
       }
     </style>
