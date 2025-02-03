@@ -507,7 +507,9 @@
             </li>
             <li>
               Contact Information:
-              <a href="mailto:info@masterframesolutions.com">
+              <a
+                href="mailto:info@masterframesolutions.com?subject=Inquiry&body=Hello, I would like to know more about..."
+              >
                 info@masterframesolutions.com
               </a>
             </li>
@@ -611,6 +613,12 @@
           hamburger.classList.remove('active');
           navMenu.classList.remove('active');
         }
+      });
+
+      document.querySelectorAll('a[href^="mailto:"]').forEach((mailLink) => {
+        mailLink.addEventListener('click', function (event) {
+          event.stopPropagation(); // Ensure no JS interference
+        });
       });
 
       document.addEventListener('alpine:init', () => {
