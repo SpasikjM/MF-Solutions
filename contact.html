@@ -420,9 +420,44 @@
         color: green;
       }
 
-      @media (max-width: 768px) {
-        #mc_embed_signup {
-          padding: 15px;
+      @media (max-width: 864px) {
+        /* Stack the sections vertically on smaller screens */
+        .subscribe-section-wrapper {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .description-section,
+        #mc_embed_shell {
+          width: 100%; /* Full width for better mobile display */
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .description-section,
+        #mc_embed_shell {
+          padding: 15px; /* Reduce padding for better spacing */
+        }
+
+        .description-section h3,
+        #mc_embed_signup h2 {
+          font-size: 20px; /* Slightly reduce font size */
+        }
+
+        .description-section p,
+        #mc_embed_signup label {
+          font-size: 14px; /* Adjust text for readability */
+        }
+
+        .subscribe-form input[type='email'] {
+          font-size: 14px;
+        }
+
+        .subscribe-form button {
+          font-size: 14px;
+          padding: 8px;
         }
       }
 
