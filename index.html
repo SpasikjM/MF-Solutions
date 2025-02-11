@@ -190,14 +190,16 @@
       .cta-button-primary {
         display: inline-block;
         margin-top: 20px;
-        padding: 10px 20px;
+        padding: 12px 24px;
         background-color: #f0a500;
         color: white;
         text-decoration: none;
         font-size: 16px;
         font-weight: bold;
         border-radius: 5px;
+        border: none; /* Ensures no dark border */
         transition: background-color 0.3s;
+        cursor: pointer;
       }
 
       .cta-button-secondary {
@@ -276,20 +278,6 @@
       .modal-text p {
         font-size: 16px;
         color: #555;
-      }
-
-      .modal-button {
-        padding: 10px 20px;
-        background-color: #f0a500;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
-      }
-
-      .modal-button:hover {
-        background-color: #d48800;
       }
 
       /* Footer */
@@ -444,8 +432,8 @@
                 <a href="contact.html">Contact Section</a> to receive updates &
                 special offers.
               </p>
-              <button class="modal-button" onclick="closeModal()">
-                Got it! Keep me updated.
+              <button class="cta-button-primary" onclick="closeModal()">
+                Got it!
               </button>
               <a href="contact.html" class="cta-button-secondary">Subscribe</a>
             </div>
