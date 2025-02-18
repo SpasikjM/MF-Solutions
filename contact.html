@@ -10,13 +10,32 @@
       type="image/x-icon"
       href="/assets/img/Logo_variation_01.png"
     />
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-P4295GEN9N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-P4295GEN9N');
+    </script>
+
     <style>
-      /* General Styles */
-      body {
-        font-family: Arial, sans-serif;
+      /* Reset and Base Styles */
+      * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -28,17 +47,16 @@
         flex-direction: column;
       }
 
-      /* Navigation Bar Styles */
+      /* Navigation Styles */
       nav {
         background-color: #333;
-        color: white;
         position: fixed;
         top: 0;
         width: 100%;
         z-index: 1000;
       }
 
-      nav .nav-container {
+      .nav-container {
         max-width: 1296px;
         margin: 0 auto;
         display: flex;
@@ -47,258 +65,199 @@
         padding: 10px 20px;
       }
 
-      nav .logo img {
-        max-height: 40px; /* Adjust logo height */
+      .logo img {
+        max-height: 40px;
       }
 
-      nav .logo {
-        font-size: 1.5em;
-        font-weight: bold;
-        color: white;
-      }
-
-      nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+      .nav-menu {
         display: flex;
+        list-style: none;
+        gap: 30px;
       }
 
-      nav ul li {
-        margin: 0 15px;
-      }
-
-      nav ul li a {
-        text-decoration: none;
+      .nav-menu a {
         color: white;
-        font-size: 1em;
+        text-decoration: none;
         transition: color 0.3s;
       }
 
-      nav ul li a:hover {
+      .nav-menu a:hover {
         color: #f0a500;
       }
 
-      /* Hamburger Menu Styles */
       .hamburger {
         display: none;
         flex-direction: column;
+        gap: 3px;
         cursor: pointer;
         padding: 5px;
-        z-index: 1001;
       }
 
       .hamburger div {
         width: 25px;
         height: 3px;
         background-color: white;
-        margin: 3px 0;
         transition: all 0.3s ease;
       }
 
-      /* Hamburger animation classes */
-      .hamburger.active div:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-
-      .hamburger.active div:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
-
-      .nav-menu {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .nav-menu {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .nav-menu.active {
-        display: flex;
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 20px 0;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
-      }
-
-      .nav-menu.active li {
-        margin: 10px 0;
-        text-align: center;
-      }
       /* Hero Section */
       .hero-section {
-        position: relative;
         background-image: url('assets/img/MF Solutions Catalog_Page_hero.png');
         background-size: cover;
         background-position: center;
         height: 500px;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        color: #fff;
         padding: 0 120px;
-        margin-bottom: 120px;
+        margin-top: 60px;
+        margin-bottom: 80px;
+        color: white;
       }
 
       .hero-content h1 {
         font-size: 36px;
-        margin: 0;
-        font-weight: bold;
+        margin-bottom: 15px;
       }
 
       .hero-content p {
         font-size: 18px;
-        margin-top: 10px;
       }
 
       /* Main Content */
       .main-content {
-        max-width: 100%;
-        padding: 0 20px;
-        margin-bottom: 80px;
-      }
-
-      /* Contact Information Wrapper */
-      .contact-info-wrapper {
         max-width: 1296px;
         margin: 0 auto;
         padding: 0 20px;
+        width: 100%;
       }
 
-      /* Contact Information Cards */
+      /* Info Section */
       .info-section {
         display: flex;
         flex-wrap: wrap;
         gap: 30px;
-        justify-content: space-between;
-        margin-top: 40px;
+        margin-bottom: 60px;
       }
 
       .info-card {
+        flex: 1;
+        min-width: 300px;
         background-color: #f4f4f4;
-        padding: 20px;
+        padding: 30px;
         border-radius: 5px;
         text-align: center;
-        flex: 1 1 calc(33.333% - 30px);
-        box-sizing: border-box;
       }
 
       .info-card h3 {
         color: #f0a500;
-        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .info-card p {
+        margin-bottom: 10px;
+      }
+
+      .info-card a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .info-card a:hover {
+        color: #f0a500;
       }
 
       /* Subscribe Section */
       .subscribe-section-wrapper {
         display: flex;
-        gap: 30px;
-        justify-content: center;
-        align-items: stretch;
         flex-wrap: wrap;
+        gap: 30px;
         max-width: 1296px;
-        margin: 40px auto;
+        margin: 0 auto 60px;
+        padding: 0 20px;
       }
 
-      .subscribe-section {
+      .description-section,
+      #mc_embed_signup {
         flex: 1;
-        max-width: 500px;
-        padding: 20px;
+        min-width: 300px;
         background-color: #f4f4f4;
+        padding: 30px;
         border-radius: 5px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: start;
-      }
-
-      .subscribe-section h3 {
-        margin-bottom: 15px;
-        color: #333;
-      }
-
-      .subscribe-form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .subscribe-form label {
-        font-size: 14px;
-        font-weight: bold;
-        text-align: left;
-      }
-
-      .subscribe-form input[type='email'] {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-      }
-
-      .subscribe-form button {
-        padding: 10px;
-        font-size: 16px;
-        background-color: #f0a500;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-
-      .subscribe-form button:hover {
-        background-color: #d48800;
-      }
-
-      /* Description Section */
-      .description-section {
-        flex: 1;
-        max-width: 500px;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: left;
       }
 
       .description-section h3 {
-        margin-bottom: 10px;
-        color: #333;
+        margin-bottom: 20px;
       }
 
-      .description-section p {
-        line-height: 1.6;
-        color: #555;
+      .description-section ul {
+        margin: 15px 0 25px 20px;
+      }
+
+      .description-section li {
+        margin-bottom: 10px;
+      }
+
+      .description-section h6 {
+        font-weight: normal;
+        font-size: 0.9em;
+        color: #666;
+        line-height: 1.4;
+      }
+
+      /* Form Styles */
+      #mc_embed_signup h3 {
+        margin-bottom: 20px;
+      }
+
+      .indicates-required {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .mc-field-group {
+        margin-bottom: 20px;
+      }
+
+      .mc-field-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      #mc_embed_signup input[type='email'] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
         font-size: 16px;
+      }
+
+      #mc_embed_signup .button {
+        background-color: #f0a500;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      #mc_embed_signup .button:hover {
+        background-color: #d48800;
       }
 
       /* Footer */
       footer {
+        background-color: #f4f4f4;
         text-align: center;
         padding: 20px;
-        background-color: #f4f4f4;
         margin-top: auto;
       }
 
-      @media (max-width: 768px) {
-        .main-content .info-section {
-          flex-direction: column; /* Stack items vertically */
-        }
-        .main-content .subscribe-section-wrapper {
-          flex-direction: column; /* Stack items vertically */
-        }
-      }
-
+      /* Responsive Styles */
       @media (max-width: 768px) {
         .hamburger {
           display: flex;
@@ -306,219 +265,24 @@
 
         .nav-menu {
           display: none;
-          width: 100%;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .hero-section {
-          padding: 0 40px; /* Reduce horizontal padding */
-          height: 400px; /* Adjust height for smaller screens */
-        }
-
-        .hero-content h1 {
-          font-size: 28px; /* Smaller heading for smaller screens */
-        }
-
-        .hero-content p {
-          font-size: 16px; /* Adjust paragraph size */
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero-section {
-          padding: 0 20px; /* Further reduce padding for very small screens */
-          height: 300px; /* Adjust height for extra-small screens */
-        }
-
-        .hero-content h1 {
-          font-size: 22px; /* Make heading more compact */
-        }
-
-        .hero-content p {
-          font-size: 14px; /* Reduce paragraph size further */
-        }
-      }
-
-      /* Form Styles */
-      #mc_embed_signup {
-        background-color: #f4f4f4;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 600px;
-        margin: auto;
-        font-family: Arial, sans-serif;
-      }
-
-      #mc_embed_signup h2 {
-        font-size: 22px;
-        color: #333;
-        margin-bottom: 15px;
-        text-align: left;
-      }
-
-      #mc_embed_signup label {
-        display: block;
-        font-size: 14px;
-        font-weight: bold;
-        margin-bottom: 8px;
-        color: #555;
-      }
-
-      #mc_embed_signup input[type='email'] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        margin-bottom: 15px;
-        box-sizing: border-box;
-      }
-
-      #mc_embed_signup input[type='email']:focus {
-        outline: none;
-        border-color: #f0a500;
-        box-shadow: 0 0 5px rgba(240, 165, 0, 0.5);
-      }
-
-      #mc_embed_signup .button {
-        display: block;
-        width: 200px;
-        padding: 10px;
-        font-size: 16px;
-        background-color: #f0a500;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        text-align: center;
-      }
-
-      #mc_embed_signup .button:hover {
-        background-color: #d48800;
-      }
-
-      #mc_embed_signup .indicates-required {
-        font-size: 12px;
-        color: #888;
-        margin-bottom: 10px;
-      }
-
-      #mc_embed_signup .response {
-        font-size: 14px;
-        margin-top: 10px;
-        display: none; /* Hide default responses unless triggered */
-      }
-
-      #mc_embed_signup .response.error {
-        color: red;
-      }
-
-      #mc_embed_signup .response.success {
-        color: green;
-      }
-
-      /* Responsive Layout for Smaller Screens */
-      @media (max-width: 768px) {
-        .subscribe-section-wrapper {
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-        }
-
-        .subscribe-section h3,
-        #mc_embed_signup h2 {
-          font-size: 20px;
-          text-align: center;
-        }
-
-        .subscribe-form input[type='email'] {
-          width: 100%;
-          font-size: 14px;
-          padding: 10px;
-        }
-
-        .subscribe-form button {
-          width: 100%;
-          font-size: 14px;
-          padding: 10px;
-        }
-      }
-
-      /* Extra Small Screens (Mobile) */
-      @media (max-width: 480px) {
-        .subscribe-section-wrapper {
-          gap: 15px;
-        }
-
-        .subscribe-section,
-        .description-section,
-        #mc_embed_shell {
-          padding: 15px;
-        }
-
-        .subscribe-section h3,
-        #mc_embed_signup h2 {
-          font-size: 18px;
-        }
-
-        .subscribe-form label {
-          font-size: 14px;
-        }
-
-        .subscribe-form input[type='email'] {
-          font-size: 14px;
-        }
-
-        .subscribe-form button {
-          font-size: 14px;
-          padding: 8px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .main-section {
-          margin-bottom: 40px;
-        }
-      }
-
-      @media (max-width: 868px) {
-        .main-content {
-          flex-direction: column;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .hamburger {
-          display: flex;
-        }
-
-        .nav-menu {
           position: fixed;
-          right: -100%;
           top: 60px;
+          left: 0;
+          width: 100%;
           flex-direction: column;
           background-color: #333;
-          width: 100%;
           padding: 20px 0;
-          text-align: center;
-          transition: right 0.3s ease;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          align-items: center;
         }
 
         .nav-menu.active {
-          right: 0;
-        }
-
-        .nav-menu li {
-          margin: 16px 0;
+          display: flex;
         }
 
         .hero-section {
           padding: 0 40px;
           height: 400px;
+          margin-bottom: 40px;
         }
 
         .hero-content h1 {
@@ -527,6 +291,10 @@
 
         .hero-content p {
           font-size: 16px;
+        }
+
+        .info-card {
+          flex: 1 1 100%;
         }
       }
 
@@ -537,11 +305,18 @@
         }
 
         .hero-content h1 {
-          font-size: 22px;
+          font-size: 24px;
         }
 
-        .hero-content p {
-          font-size: 14px;
+        .main-content,
+        .subscribe-section-wrapper {
+          padding: 0 15px;
+        }
+
+        .info-card,
+        .description-section,
+        #mc_embed_signup {
+          padding: 20px;
         }
       }
     </style>
@@ -562,12 +337,15 @@
   </script>
   <body>
     <div class="page-wrapper">
-      <!-- Nav Bar Section -->
+      <!-- Navigation -->
       <nav>
         <div class="nav-container">
           <div class="logo">
-            <a href="#home">
-              <img src="assets/img/Logo_white.png" alt="Company Logo" />
+            <a href="index.html">
+              <img
+                src="assets/img/Logo_white.png"
+                alt="Master Frame Solutions Logo"
+              />
             </a>
           </div>
           <div class="hamburger">
@@ -587,7 +365,7 @@
       </nav>
 
       <!-- Hero Section -->
-      <section id="contact" class="hero-section">
+      <section class="hero-section">
         <div class="hero-content">
           <h1>Contact Us</h1>
           <p>Get in touch with our team of framing experts.</p>
@@ -596,36 +374,34 @@
 
       <!-- Main Content -->
       <section class="main-content">
-        <!-- Contact Information Section -->
-        <div class="contact-info-wrapper">
-          <div class="info-section">
-            <div class="info-card">
-              <h3>Business Hours</h3>
-              <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-              <p>Saturday: By appointment</p>
-              <p>Sunday: By appointment</p>
-            </div>
+        <div class="info-section">
+          <div class="info-card">
+            <h3>Business Hours</h3>
+            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+            <p>Saturday: By appointment</p>
+            <p>Sunday: By appointment</p>
+          </div>
 
-            <div class="info-card">
-              <h3>Contact Information</h3>
-              <p>Phone: (303) 961-1959</p>
-              <p>
-                Email:
-                <a href="mailto:info@masterframesolution.com"
-                  >info@masterframesolution.com</a
-                >
-              </p>
-            </div>
+          <div class="info-card">
+            <h3>Contact Information</h3>
+            <p>Phone: (303) 961-1959</p>
+            <p>
+              Email:
+              <a href="mailto:info@masterframesolution.com"
+                >info@masterframesolution.com</a
+              >
+            </p>
+          </div>
 
-            <div class="info-card">
-              <h3>Location</h3>
-              <p>TBD</p>
-              <p>Boulder, CO 80303</p>
-            </div>
+          <div class="info-card">
+            <h3>Location</h3>
+            <p>TBD</p>
+            <p>Boulder, CO 80303</p>
           </div>
         </div>
       </section>
 
+      <!-- Subscribe Section -->
       <div class="subscribe-section-wrapper">
         <div class="description-section">
           <h3>Why Subscribe?</h3>
@@ -644,93 +420,60 @@
           </h6>
         </div>
 
-        <div id="mc_embed_shell">
-          <div id="mc_embed_signup">
-            <form
-              action="https://masterframesolutions.us14.list-manage.com/subscribe/post?u=8134f5389ce603697c30def5c&amp;id=f6452d9301&amp;f_id=0025d3e0f0"
-              method="post"
-              id="mc-embedded-subscribe-form"
-              name="mc-embedded-subscribe-form"
-              class="validate"
-              target="_blank"
-            >
-              <div id="mc_embed_signup_scroll">
-                <h3>Subscribe</h3>
-                <div class="indicates-required">
-                  <span class="asterisk">*</span> indicates required
-                </div>
-                <div class="mc-field-group">
-                  <label for="mce-EMAIL"
-                    >Email Address <span class="asterisk">*</span></label
-                  ><input
-                    type="email"
-                    name="EMAIL"
-                    class="required email"
-                    id="mce-EMAIL"
-                    required=""
-                    value=""
-                  />
-                </div>
-                <div id="mce-responses" class="clear">
-                  <div
-                    class="response"
-                    id="mce-error-response"
-                    style="display: none"
-                  ></div>
-                  <div
-                    class="response"
-                    id="mce-success-response"
-                    style="display: none"
-                  ></div>
-                </div>
-                <div
-                  aria-hidden="true"
-                  style="position: absolute; left: -5000px"
-                >
-                  <input
-                    type="text"
-                    name="b_8134f5389ce603697c30def5c_f6452d9301"
-                    tabindex="-1"
-                    value=""
-                  />
-                </div>
-                <div class="clear">
-                  <input
-                    type="submit"
-                    name="subscribe"
-                    id="mc-embedded-subscribe"
-                    class="button"
-                    value="Subscribe"
-                  />
-                </div>
-              </div>
-            </form>
-          </div>
-          <script
-            type="text/javascript"
-            src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
-          ></script>
-          <script type="text/javascript">
-            (function ($) {
-              window.fnames = new Array();
-              window.ftypes = new Array();
-              fnames[0] = 'EMAIL';
-              ftypes[0] = 'email';
-              fnames[1] = 'FNAME';
-              ftypes[1] = 'text';
-              fnames[2] = 'LNAME';
-              ftypes[2] = 'text';
-              fnames[3] = 'ADDRESS';
-              ftypes[3] = 'address';
-              fnames[4] = 'PHONE';
-              ftypes[4] = 'phone';
-              fnames[5] = 'BIRTHDAY';
-              ftypes[5] = 'birthday';
-              fnames[6] = 'COMPANY';
-              ftypes[6] = 'text';
-            })(jQuery);
-            var $mcj = jQuery.noConflict(true);
-          </script>
+        <div id="mc_embed_signup">
+          <form
+            action="https://masterframesolutions.us14.list-manage.com/subscribe/post?u=8134f5389ce603697c30def5c&amp;id=f6452d9301&amp;f_id=0025d3e0f0"
+            method="post"
+            id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+            class="validate"
+            target="_blank"
+          >
+            <h3>Subscribe</h3>
+            <div class="indicates-required">
+              <span class="asterisk">*</span> indicates required
+            </div>
+            <div class="mc-field-group">
+              <label for="mce-EMAIL"
+                >Email Address <span class="asterisk">*</span></label
+              >
+              <input
+                type="email"
+                name="EMAIL"
+                class="required email"
+                id="mce-EMAIL"
+                required
+              />
+            </div>
+            <div id="mce-responses">
+              <div
+                class="response"
+                id="mce-error-response"
+                style="display: none"
+              ></div>
+              <div
+                class="response"
+                id="mce-success-response"
+                style="display: none"
+              ></div>
+            </div>
+            <div aria-hidden="true" style="position: absolute; left: -5000px">
+              <input
+                type="text"
+                name="b_8134f5389ce603697c30def5c_f6452d9301"
+                tabindex="-1"
+              />
+            </div>
+            <div class="clear">
+              <input
+                type="submit"
+                value="Subscribe"
+                name="subscribe"
+                id="mc-embedded-subscribe"
+                class="button"
+              />
+            </div>
+          </form>
         </div>
       </div>
 
@@ -738,37 +481,38 @@
       <footer>
         <p>&copy; 2025 Master Frame Solutions. All rights reserved.</p>
       </footer>
-
-      <script>
-        window.onload = () => {
-          window.scrollTo(0, 0);
-        };
-        // Hamburger menu functionality
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active');
-          navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking a nav link
-        document.querySelectorAll('.nav-menu a').forEach((link) => {
-          link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          }
-        });
-      </script>
     </div>
-    <!-- End of page-wrapper -->
+
+    <script>
+      // Mobile menu functionality
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-menu a').forEach((link) => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        }
+      });
+
+      // Scroll to top on page load
+      window.onload = () => {
+        window.scrollTo(0, 0);
+      };
+    </script>
   </body>
 </html>
