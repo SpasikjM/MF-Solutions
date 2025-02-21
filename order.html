@@ -122,7 +122,7 @@
         justify-content: flex-start;
         color: #fff;
         padding: 0 120px;
-        margin-bottom: 120px;
+        margin-bottom: 20px;
       }
 
       .hero-content h1 {
@@ -134,6 +134,47 @@
       .hero-content p {
         font-size: 18px;
         margin-top: 10px;
+      }
+
+      /* Announcement Section */
+      .announcement-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0a500;
+        color: #fff;
+        padding: 15px 0;
+        margin: 80px auto; /* Centers the announcement section horizontally */
+        text-align: center;
+        width: 100%;
+        max-width: 1296px; /* Ensures the section doesn’t grow too wide */
+      }
+
+      .announcement-section p {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .announcement-section form {
+        margin-top: 10px;
+      }
+
+      .announcement-section input[type='email'] {
+        padding: 8px;
+        border: none;
+        border-radius: 4px;
+        width: 250px;
+        max-width: 80%;
+      }
+
+      .announcement-section button {
+        padding: 8px 16px;
+        margin-left: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
       }
 
       /* Main Content Layout */
@@ -294,7 +335,6 @@
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
     gtag('config', 'G-P4295GEN9N');
   </script>
   <body>
@@ -331,6 +371,41 @@
         </div>
       </section>
 
+      <!-- Announcement Section in Order HTML -->
+      <div class="announcement-section">
+        <div class="container">
+          <p>
+            <strong>Price List Announcement:</strong> Our price list will be
+            available from <strong>1st of April</strong>.
+          </p>
+          <p>Subscribe to get updates when it becomes available:</p>
+          <form
+            id="subscribe-form"
+            class="d-flex justify-content-center"
+            action="https://masterframesolutions.us14.list-manage.com/subscribe/post?u=8134f5389ce603697c30def5c&amp;id=f6452d9301&amp;f_id=0025d3e0f0"
+            method="post"
+            target="_blank"
+          >
+            <input
+              type="email"
+              name="EMAIL"
+              placeholder="Enter your email"
+              required
+            />
+            <!-- Hidden field to help prevent bot signups -->
+            <div aria-hidden="true" style="position: absolute; left: -5000px">
+              <input
+                type="text"
+                name="b_8134f5389ce603697c30def5c_f6452d9301"
+                tabindex="-1"
+                value=""
+              />
+            </div>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
       <!-- Main Content -->
       <div class="main-content">
         <div class="description">
@@ -358,34 +433,28 @@
           </p>
           <ol>
             <li>
-              Business Verification We only sell to verified businesses, not
-              individual consumers. Your company information helps us confirm
-              that you are a legitimate business partner.
+              Business Verification – Confirm that you are a legitimate business
+              partner.
             </li>
             <li>
-              Sales Tax Compliance If your business qualifies for tax-exempt
-              purchases, a valid Tax ID is required for proper documentation and
-              compliance with state and federal tax laws.
+              Sales Tax Compliance – Ensure proper documentation and adherence
+              to tax laws.
             </li>
             <li>
-              Accurate Invoicing & Legal Documentation Providing your business
-              details ensures that invoices and order confirmations are
-              correctly issued for accounting and legal purposes.
+              Accurate Invoicing – Guarantee correct issuance of invoices and
+              order confirmations.
             </li>
             <li>
-              Trade Credit & Payment Terms For businesses that qualify for net
-              payment terms (e.g., Net 30, Net 60), verifying company details
-              helps us assess creditworthiness and reduce the risk of
-              unauthorized purchases.
+              Trade Credit & Payment Terms – Verify company details to assess
+              creditworthiness.
             </li>
             <li>
-              Protecting Wholesale Pricing To maintain fair pricing for our B2B
-              customers, we prevent unauthorized resellers and individuals from
-              taking advantage of wholesale discounts meant for businesses.
+              Protecting Wholesale Pricing – Prevent unauthorized access to B2B
+              discounts.
             </li>
           </ol>
           <p>
-            By requiring this information, we can streamline your order process,
+            By providing this information, we streamline your order process,
             ensure tax compliance, and maintain secure business transactions.
           </p>
         </div>
@@ -622,7 +691,7 @@
           .then(function (response) {
             console.log('Email sent successfully:', response);
             alert(
-              'Your company information was successfully sent and received! We are going to get back to you as soon as we review your company information. Thank you! '
+              'Your company information was successfully sent and received! We are going to get back to you as soon as we review your company information. Thank you!'
             );
             document.getElementById('order-form').reset();
           })
